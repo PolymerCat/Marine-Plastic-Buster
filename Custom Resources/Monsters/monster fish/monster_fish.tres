@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=2 format=3 uid="uid://cddw35y4u630j"]
+
+[ext_resource type="Script" path="res://Custom Resources/Monsters/monster_def.gd" id="1_yx28p"]
+
+[resource]
+script = ExtResource("1_yx28p")
+name = "Monster Fish"
+id = "M001"

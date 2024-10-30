@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://j2pmr1gfkm6i"]
+
+[ext_resource type="FontFile" uid="uid://dfeplcv74nsg7" path="res://Assets/Packs/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="1_1dqoi"]
+[ext_resource type="Script" path="res://Scripts/camera_ui.gd" id="1_efx0h"]
+
+[node name="camera_ui" type="Camera2D"]
+script = ExtResource("1_efx0h")
+
+[node name="Current Objective" type="Label" parent="."]
+visible = false
+offset_left = -555.0
+offset_top = -307.0
+offset_right = -307.0
+offset_bottom = -284.0
+theme_override_fonts/font = ExtResource("1_1dqoi")
+text = "Collect x15 Plastics"

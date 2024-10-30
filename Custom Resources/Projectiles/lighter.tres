@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Projectiles" load_steps=3 format=3 uid="uid://b0i1gxxya0a0p"]
+
+[ext_resource type="Script" path="res://Custom Resources/Projectiles/Projectiles.gd" id="1_fygun"]
+[ext_resource type="Texture2D" uid="uid://3b6e52c7f3yg" path="res://Assets/Images/lighter.png" id="1_qvdgl"]
+
+[resource]
+script = ExtResource("1_fygun")
+name = "Lighter"
+id = "P001"
+description = "A small tool that produces flame"
+artwork = ExtResource("1_qvdgl")

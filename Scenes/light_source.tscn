@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cscv1oau57d4t"]
+
+[sub_resource type="Gradient" id="Gradient_6fq67"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xu4lu"]
+gradient = SubResource("Gradient_6fq67")
+fill = 1
+fill_from = Vector2(0.490826, 0.518349)
+fill_to = Vector2(0.733945, 0.766055)
+
+[node name="light source" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_xu4lu")
