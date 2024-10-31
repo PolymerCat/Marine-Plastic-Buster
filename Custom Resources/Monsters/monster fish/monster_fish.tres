@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Monster" load_steps=2 format=3 uid="uid://cddw35y4u630j"]
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://cddw35y4u630j"]
 
+[ext_resource type="AudioStream" uid="uid://b2lvpex4ol6uv" path="res://Custom Resources/Monsters/monster fish/creature-or-monster-growl-sound-effect-2-239697.mp3" id="1_lt6wf"]
 [ext_resource type="Script" path="res://Custom Resources/Monsters/monster_def.gd" id="1_yx28p"]
 
 [resource]
 script = ExtResource("1_yx28p")
 name = "Monster Fish"
 id = "M001"
+death_sound_mp3 = ExtResource("1_lt6wf")

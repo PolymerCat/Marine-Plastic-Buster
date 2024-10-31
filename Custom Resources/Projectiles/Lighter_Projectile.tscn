@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw8rmwcie0mse"]
+
+[ext_resource type="Script" path="res://Custom Resources/Projectiles/Projectile_Logic.gd" id="1_xpyjj"]
+[ext_resource type="Resource" uid="uid://b0i1gxxya0a0p" path="res://Custom Resources/Projectiles/lighter.tres" id="2_j8yw3"]
+[ext_resource type="AudioStream" uid="uid://dsd3jfc1n3bjd" path="res://Assets/Audio/Molotov - Sfx.wav" id="3_lsp5w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bb4b"]
+
+[node name="LighterProjectile" type="Area2D"]
+script = ExtResource("1_xpyjj")
+Projectile = ExtResource("2_j8yw3")
+speed = 900.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1bb4b")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lsp5w")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
