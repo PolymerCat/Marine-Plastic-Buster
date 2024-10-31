@@ -6,10 +6,11 @@ extends CharacterBody2D
 
 # SOME PLAYER VARIABLES LIKE STATS
 const SPEED = 300.0
-const DASH_SPEED = 400.0
+const DASH_SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 var projectile_cooldown = true
 var isDashing = false
+
 var combat_mode = true
 
 # PRELOAD WEAPONS
@@ -40,25 +41,25 @@ func isPlayer():
 
 # THIS FUNCTION IS FOR SWITCHING BETWEEN MELEE AND RANGED COMBAT
 func weaponSwitch():
-	var isMelee = true
 	if Input.get_action_strength("gameplay_weapon1"): 
-		isMelee=true
-		
+		combat_mode=true
+		print("toggle ranged")
 	if Input.get_action_strength("gameplay_weapon2"):
-		isMelee=false
+		combat_mode=false
+		print("toggle melee")
 
 # WHEN THE PLAYER DIES, GAME OVER
 func gameover_condition():
-	if Global.health <=0:
+	if Global.player_health <=0:
 		get_tree().quit()
 
 # THIS FUNCTION HANDLES PLAYER MOVEMENT
 func _physics_process(delta):
 	# get dash button pressed
-	var dashPressed = Input.get_action_strength("gameplay_dash")
-	if dashPressed>0:
-		isDashing = true
-	else : isDashing = false
+	#var dashPressed = Input.get_action_strength("gameplay_dash")
+	#if dashPressed>0:
+		#isDashing = true
+	#else : isDashing = false
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_vector("gameplay_left","gameplay_right","gameplay_up","gameplay_down")
 	if direction:
@@ -78,12 +79,25 @@ func _physics_process(delta):
 
 	move_and_slide()
 	playerRaycast()
-	weaponSwitch()
+	#weaponSwitch()
 	gameover_condition()
+
+func _process(delta):
+	if Input.is_action_just_pressed("gameplay_dash") :
+		print("dash!")
+		isDashing=true
+		await get_tree().create_timer(0.3).timeout
+		isDashing=false
+		
+		
+
 
 # THIS FUNCTION IS TO APPLY DAMAGE TO PLAYER
 func _on_hitbox_area_entered(area):
 	if area.has_method("damagePlayer"):
-		print(Global.health)
-		Global.health -= 1
+		
+		Global.player_health -= 1
+		print(Global.player_health)
+		await get_tree().create_timer(0.4).timeout
+		
 		#get_tree().quit()

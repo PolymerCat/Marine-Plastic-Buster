@@ -7,4 +7,5 @@
 script = ExtResource("1_yx28p")
 name = "Monster Fish"
 id = "M001"
+health = 5
 death_sound_mp3 = ExtResource("1_lt6wf")

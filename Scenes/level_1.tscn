@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c05676ncbexxu"]
+[gd_scene load_steps=16 format=3 uid="uid://c05676ncbexxu"]
 
 [ext_resource type="Texture2D" uid="uid://bgg80gtj6id3j" path="res://Assets/Packs/Beach Assets/Beach Tileset.png" id="1_i3man"]
 [ext_resource type="PackedScene" uid="uid://34pt5xoerdqu" path="res://Scenes/player.tscn" id="2_yay02"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c72n0c7tx0tit" path="res://Scenes/item scenes/pickup.tscn" id="4_nsqe4"]
 [ext_resource type="Resource" uid="uid://cbqrhepqp6uu5" path="res://Custom Resources/Items/wrench.tres" id="5_jvbxb"]
 [ext_resource type="PackedScene" uid="uid://cscv1oau57d4t" path="res://Scenes/light_source.tscn" id="6_rkhud"]
+[ext_resource type="PackedScene" uid="uid://c11s5uye7elvy" path="res://Custom Resources/Monsters/monster fish/monster_fish.tscn" id="7_l1r5u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pf31"]
 texture = ExtResource("1_i3man")
@@ -271,3 +272,15 @@ scale = Vector2(5.97, 5.97)
 visible = false
 position = Vector2(-212, 682)
 scale = Vector2(5.97, 5.97)
+
+[node name="MonsterFish" parent="." instance=ExtResource("7_l1r5u")]
+position = Vector2(222, 50)
+scale = Vector2(2, 2)
+
+[node name="MonsterFish2" parent="." instance=ExtResource("7_l1r5u")]
+position = Vector2(-405, 891)
+scale = Vector2(2, 2)
+
+[node name="MonsterFish3" parent="." instance=ExtResource("7_l1r5u")]
+position = Vector2(-512, -937)
+scale = Vector2(2, 2)

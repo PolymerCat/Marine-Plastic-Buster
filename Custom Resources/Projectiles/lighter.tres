@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Custom Resources/Projectiles/Projectiles.gd" id="1_fygun"]
 [ext_resource type="Texture2D" uid="uid://3b6e52c7f3yg" path="res://Assets/Images/lighter.png" id="1_qvdgl"]
-[ext_resource type="AudioStream" uid="uid://dsd3jfc1n3bjd" path="res://Assets/Audio/Molotov - Sfx.wav" id="2_bu30c"]
+[ext_resource type="AudioStream" uid="uid://cou4j31ilggn" path="res://Assets/Audio/Molotov Throw - Sfx.wav" id="2_grdo0"]
 
 [resource]
 script = ExtResource("1_fygun")
 name = "Lighter"
 id = "P001"
 description = "A small tool that produces flame"
-projectile_sound = ExtResource("2_bu30c")
+projectile_sound = ExtResource("2_grdo0")
 artwork = ExtResource("1_qvdgl")

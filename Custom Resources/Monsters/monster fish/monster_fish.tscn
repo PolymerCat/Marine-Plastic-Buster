@@ -1,54 +1,62 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh4c4h0g706wr"]
+[gd_scene load_steps=14 format=3 uid="uid://c11s5uye7elvy"]
 
 [ext_resource type="Texture2D" uid="uid://dh57xuwepf7fh" path="res://Custom Resources/Monsters/monster fish/Cacodaemon Sprite Sheet.png" id="1_6im32"]
+[ext_resource type="Script" path="res://Custom Resources/Monsters/monster fish/Monster.gd" id="1_043kp"]
+[ext_resource type="Resource" uid="uid://cddw35y4u630j" path="res://Custom Resources/Monsters/monster fish/monster_fish.tres" id="2_gqhip"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nwy38"]
-radius = 24.0208
+[sub_resource type="CircleShape2D" id="CircleShape2D_4r5hk"]
+radius = 22.2036
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bsvgn"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_opbvy"]
+radius = 23.0217
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pmaab"]
+radius = 580.055
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t21uv"]
 atlas = ExtResource("1_6im32")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lf7nk"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_msgv1"]
 atlas = ExtResource("1_6im32")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_exjhl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlxji"]
 atlas = ExtResource("1_6im32")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_al55w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtmtb"]
 atlas = ExtResource("1_6im32")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4w0t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d7c0"]
 atlas = ExtResource("1_6im32")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4hkwb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5p2i"]
 atlas = ExtResource("1_6im32")
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_mt8q1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_hsqqs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bsvgn")
+"texture": SubResource("AtlasTexture_t21uv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lf7nk")
+"texture": SubResource("AtlasTexture_msgv1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_exjhl")
+"texture": SubResource("AtlasTexture_dlxji")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_al55w")
+"texture": SubResource("AtlasTexture_mtmtb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b4w0t")
+"texture": SubResource("AtlasTexture_1d7c0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4hkwb")
+"texture": SubResource("AtlasTexture_s5p2i")
 }],
 "loop": true,
 "name": &"default",
@@ -56,20 +64,32 @@ animations = [{
 }]
 
 [node name="MonsterFish" type="CharacterBody2D"]
+script = ExtResource("1_043kp")
+monster_data = ExtResource("2_gqhip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_nwy38")
+shape = SubResource("CircleShape2D_4r5hk")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_opbvy")
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_pmaab")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_mt8q1")
+sprite_frames = SubResource("SpriteFrames_hsqqs")
 autoplay = "default"
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-
-[node name="Area2D2" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

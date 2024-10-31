@@ -11,19 +11,27 @@ extends Area2D
 func _ready():
 	sfx.stream = Projectile.projectile_sound
 	artwork.texture = Projectile.artwork
+	sfx.play()
 	set_as_top_level(true)
 
 # THIS HANDLES THE PROJECTILE MOTION WHEN THROWN BY PLAYER
 func _physics_process(delta):
-	sfx.play()
+	
 	position += (Vector2.RIGHT*speed).rotated(rotation) * delta
 	hitbox.rotation += 30*delta
 	
 # THIS WILL DESTROY THE PROJECTILE WHEN IT HITS AN ENEMY
 func projectile_damage():
+	
+	print("hit!")
 	queue_free()
 
 
 
 func _on_visible_on_screen_enabler_2d_screen_exited():
 	queue_free()
+
+
+func _on_body_entered(body):
+	if body.has_method("enemy"):
+		projectile_damage()
