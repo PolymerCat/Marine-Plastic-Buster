@@ -67,9 +67,10 @@ func _physics_process(delta):
 		if timer.time_left <= 0:
 			footstep_sfx.pitch_scale = randf_range(0.8,1.2)
 			footstep_sfx.play()
-			if isDashing:
-				timer.start(0.3)
-			else : timer.start(0.4)
+			#if isDashing:
+				#timer.start(0.3)
+			#else : timer.start(0.4)
+			timer.start(0.4)
 		if isDashing:
 			velocity = direction * DASH_SPEED
 		else: velocity = direction * SPEED
@@ -82,6 +83,7 @@ func _physics_process(delta):
 	#weaponSwitch()
 	gameover_condition()
 
+# THIS HANDLES INPUT FOR DASHING
 func _process(delta):
 	if Input.is_action_just_pressed("gameplay_dash") :
 		print("dash!")
