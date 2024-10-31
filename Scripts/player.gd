@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var timer = $Timer
 @onready var marker_2d = $Marker2D
 
+# SOME PLAYER VARIABLES LIKE STATS
 const SPEED = 300.0
 const DASH_SPEED = 400.0
 const JUMP_VELOCITY = -400.0
@@ -14,7 +15,7 @@ var combat_mode = true
 # PRELOAD WEAPONS
 var lighter = preload("res://Custom Resources/Projectiles/Lighter_Projectile.tscn")
 
-
+# THIS FUNCTION IS FOR THE MOUSE AIMING AND SHOOTING
 func playerRaycast():
 	if Input.get_action_strength("gameplay_aim"):
 		var mousePos = get_local_mouse_position()
@@ -33,9 +34,11 @@ func playerRaycast():
 				projectile_cooldown=true
 			
 
+# THIS IS JUST A SIMPLE FUNCTION TO IDENTIFY THE PLAYER
 func isPlayer():
 	pass
 
+# THIS FUNCTION IS FOR SWITCHING BETWEEN MELEE AND RANGED COMBAT
 func weaponSwitch():
 	var isMelee = true
 	if Input.get_action_strength("gameplay_weapon1"): 
@@ -43,11 +46,13 @@ func weaponSwitch():
 		
 	if Input.get_action_strength("gameplay_weapon2"):
 		isMelee=false
-		
+
+# WHEN THE PLAYER DIES, GAME OVER
 func gameover_condition():
 	if Global.health <=0:
 		get_tree().quit()
 
+# THIS FUNCTION HANDLES PLAYER MOVEMENT
 func _physics_process(delta):
 	# get dash button pressed
 	var dashPressed = Input.get_action_strength("gameplay_dash")
@@ -76,8 +81,7 @@ func _physics_process(delta):
 	weaponSwitch()
 	gameover_condition()
 
-
-
+# THIS FUNCTION IS TO APPLY DAMAGE TO PLAYER
 func _on_hitbox_area_entered(area):
 	if area.has_method("damagePlayer"):
 		print(Global.health)
