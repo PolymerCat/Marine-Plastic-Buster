@@ -3,15 +3,19 @@ extends Control
 func resume():
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("Blur")
+	print("resuming")
 
 func pause():
 	get_tree().paused = true
 	$AnimationPlayer.play("Blur")
+	print("pausing")
 	
 func testEsc():
-	if Input.is_action_just_pressed("Pause") and !get_tree().paused == false:
+	if Input.is_action_just_pressed("Pause") and !get_tree().paused:
+		print("pause")
 		pause()
-	elif Input.is_action_just_pressed("Pause") and get_tree().paused == true:
+	elif Input.is_action_just_pressed("Pause") and get_tree().paused:
+		print("resume")
 		resume()
 
 

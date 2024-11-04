@@ -295,7 +295,7 @@ scale = Vector2(2, 2)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_8r5up")]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = 577.0
+offset_top = 339.0
+offset_right = 577.0
+offset_bottom = 339.0
