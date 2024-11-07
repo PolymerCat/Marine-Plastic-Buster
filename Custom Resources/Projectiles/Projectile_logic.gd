@@ -20,6 +20,7 @@ func _physics_process(delta):
 	position += (Vector2.RIGHT*speed).rotated(rotation) * delta
 	hitbox.rotation += 30*delta
 	
+	
 # THIS WILL DESTROY THE PROJECTILE WHEN IT HITS AN ENEMY
 func projectile_damage():
 	
