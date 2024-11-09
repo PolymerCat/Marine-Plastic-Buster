@@ -5,11 +5,14 @@ extends CharacterBody2D
 @onready var marker_2d = $Marker2D
 
 # SOME PLAYER VARIABLES LIKE STATS
-const SPEED = 300.0
+const SPEED = 150.0
 const DASH_SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 var projectile_cooldown = true
 var hp=80
+
+
+
 
 var combat_mode = true
 
@@ -80,10 +83,10 @@ func _process(delta):
 		#isDashing=true
 		#await get_tree().create_timer(0.3).timeout
 		#isDashing=false
-		
-		
 
 
-func _on_hurtbox_hurt(damage):
+func _on_hurtbox_hurt(damage, _angle, _knockback):
 	hp -= damage
 	print(hp)
+
+

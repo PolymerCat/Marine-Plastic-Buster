@@ -10,6 +10,6 @@ func _ready():
 	#print(playerRef)
 
 
-func _process(delta):
+#func _process(delta):
 	#objective_text.text = "Plastics x" + str(Global.score)
-	objective_text.text = "Collect x15 plastics"
+	#objective_text.text = "Collect x15 plastics"

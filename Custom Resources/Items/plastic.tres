@@ -8,6 +8,7 @@
 script = ExtResource("1_c182i")
 name = "Plastic"
 id = "I001"
+experience = 1
 description = "A remnant of the old civillization. It brought the world to ruin"
 pickup_sound = ExtResource("1_ikj4g")
 artwork = ExtResource("1_c2shv")

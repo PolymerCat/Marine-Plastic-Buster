@@ -1,12 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://c05676ncbexxu"]
+[gd_scene load_steps=13 format=3 uid="uid://c05676ncbexxu"]
 
 [ext_resource type="Texture2D" uid="uid://bgg80gtj6id3j" path="res://Assets/Packs/Beach Assets/Beach Tileset.png" id="1_i3man"]
 [ext_resource type="PackedScene" uid="uid://34pt5xoerdqu" path="res://Scenes/player.tscn" id="2_yay02"]
 [ext_resource type="PackedScene" uid="uid://j2pmr1gfkm6i" path="res://Scenes/camera_ui.tscn" id="3_jybkh"]
-[ext_resource type="PackedScene" uid="uid://c72n0c7tx0tit" path="res://Scenes/item scenes/pickup.tscn" id="4_nsqe4"]
-[ext_resource type="Resource" uid="uid://cbqrhepqp6uu5" path="res://Custom Resources/Items/wrench.tres" id="5_jvbxb"]
-[ext_resource type="PackedScene" uid="uid://cscv1oau57d4t" path="res://Scenes/light_source.tscn" id="6_rkhud"]
-[ext_resource type="PackedScene" uid="uid://c11s5uye7elvy" path="res://Custom Resources/Monsters/monster fish/monster_fish.tscn" id="7_l1r5u"]
+[ext_resource type="PackedScene" uid="uid://diixrxiwsbcps" path="res://Scenes/Utility/game_manager.tscn" id="6_hh6eh"]
 [ext_resource type="PackedScene" uid="uid://dajhi3igfxlyu" path="res://Scenes/Enemy/enemy_one.tscn" id="8_5wj7q"]
 [ext_resource type="PackedScene" uid="uid://delall7nnqtfy" path="res://Scenes/Utility/Enemy_Spawner.tscn" id="9_2uli5"]
 
@@ -155,15 +152,6 @@ texture = ExtResource("1_i3man")
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_6pf31")
 
-[sub_resource type="Gradient" id="Gradient_mhamr"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_h03jm"]
-gradient = SubResource("Gradient_mhamr")
-fill = 1
-fill_from = Vector2(0.490826, 0.495413)
-fill_to = Vector2(0.830275, 0.821101)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tns21"]
 size = Vector2(59, 241.771)
 
@@ -196,34 +184,10 @@ scale = Vector2(5, 5)
 position = Vector2(0, -0.2)
 scale = Vector2(0.2, 0.2)
 zoom = Vector2(0.6, 0.6)
-
-[node name="Label" type="Label" parent="Player/camera_ui"]
-offset_left = -932.0
-offset_top = -519.0
-offset_right = -810.0
-offset_bottom = -485.0
-theme_override_font_sizes/font_size = 24
-text = "Objectives"
-
-[node name="PointLight2D" type="PointLight2D" parent="Player"]
-visible = false
-position = Vector2(-0.700003, 4.8)
-scale = Vector2(1.09688, 0.99375)
-energy = 0.7
-texture = SubResource("GradientTexture2D_h03jm")
-
-[node name="pickups" type="Node" parent="."]
-
-[node name="plastic" parent="pickups" instance=ExtResource("4_nsqe4")]
-position = Vector2(349, 282)
-scale = Vector2(0.5, 0.5)
-
-[node name="wrench" parent="pickups" instance=ExtResource("4_nsqe4")]
-position = Vector2(380, 122)
-scale = Vector2(0.5, 0.5)
-item = ExtResource("5_jvbxb")
+position_smoothing_enabled = true
 
 [node name="World Limit" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(-867, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World Limit"]
@@ -244,6 +208,7 @@ shape = SubResource("RectangleShape2D_sjylq")
 one_way_collision = true
 
 [node name="Beach Limit" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2(1802, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Beach Limit"]
@@ -253,45 +218,11 @@ scale = Vector2(1, 11.04)
 shape = SubResource("RectangleShape2D_lu7yk")
 one_way_collision = true
 
-[node name="Lights and Environment" type="Node2D" parent="."]
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights and Environment"]
-visible = false
-color = Color(0.913725, 0.784314, 0.85098, 1)
-energy = 1.2
-blend_mode = 1
-
-[node name="light source" parent="Lights and Environment" instance=ExtResource("6_rkhud")]
-visible = false
-position = Vector2(360, 187)
-scale = Vector2(5.97, 5.97)
-
-[node name="light source2" parent="Lights and Environment" instance=ExtResource("6_rkhud")]
-visible = false
-position = Vector2(555, -345)
-scale = Vector2(5.97, 5.97)
-
-[node name="light source3" parent="Lights and Environment" instance=ExtResource("6_rkhud")]
-visible = false
-position = Vector2(-212, 682)
-scale = Vector2(5.97, 5.97)
-
-[node name="MonsterFish" parent="." instance=ExtResource("7_l1r5u")]
-visible = false
-position = Vector2(222, 50)
-scale = Vector2(2, 2)
-
-[node name="MonsterFish2" parent="." instance=ExtResource("7_l1r5u")]
-visible = false
-position = Vector2(-405, 891)
-scale = Vector2(2, 2)
-
-[node name="MonsterFish3" parent="." instance=ExtResource("7_l1r5u")]
-visible = false
-position = Vector2(-512, -937)
-scale = Vector2(2, 2)
-
 [node name="EnemyOne" parent="." instance=ExtResource("8_5wj7q")]
 position = Vector2(-116, 398)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("9_2uli5")]
+
+[node name="loots" type="Node2D" parent="." groups=["loot"]]
+
+[node name="GameManager" parent="." instance=ExtResource("6_hh6eh")]

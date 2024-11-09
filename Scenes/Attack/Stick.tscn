@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://63nchptwy4rq"]
+[gd_scene load_steps=5 format=3 uid="uid://63nchptwy4rq"]
 
 [ext_resource type="Script" path="res://Scenes/Attack/Stick.gd" id="1_m36s8"]
-[ext_resource type="Texture2D" uid="uid://fxxcvxjwutet" path="res://Assets/Images/wrench.png" id="1_r2mkd"]
+[ext_resource type="Texture2D" uid="uid://dgpur7j7fs4o3" path="res://Assets/Images/stick art.png" id="2_hlqf0"]
+[ext_resource type="AudioStream" uid="uid://cv7sm75jmql7t" path="res://Assets/Audio/wood_hit.wav" id="3_e43cl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bo1l"]
-size = Vector2(31.8515, 74.7773)
+size = Vector2(11.3961, 74.7773)
 
 [node name="Stick" type="Area2D" groups=["attack"]]
 top_level = true
-scale = Vector2(0.6, 0.6)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_m36s8")
@@ -19,12 +19,18 @@ one_shot = true
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, -22)
-texture = ExtResource("1_r2mkd")
+position = Vector2(16.6667, -10)
+rotation = -1.53015
+scale = Vector2(4, 4)
+texture = ExtResource("2_hlqf0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, -12)
+position = Vector2(4.94084, -13.1344)
 rotation = -0.878393
 shape = SubResource("RectangleShape2D_4bo1l")
+
+[node name="hit_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e43cl")
+volume_db = 6.559
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
