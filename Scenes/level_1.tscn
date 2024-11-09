@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c05676ncbexxu"]
+[gd_scene load_steps=14 format=3 uid="uid://c05676ncbexxu"]
 
 [ext_resource type="Texture2D" uid="uid://bgg80gtj6id3j" path="res://Assets/Packs/Beach Assets/Beach Tileset.png" id="1_i3man"]
 [ext_resource type="PackedScene" uid="uid://34pt5xoerdqu" path="res://Scenes/player.tscn" id="2_yay02"]
 [ext_resource type="PackedScene" uid="uid://j2pmr1gfkm6i" path="res://Scenes/camera_ui.tscn" id="3_jybkh"]
 [ext_resource type="PackedScene" uid="uid://diixrxiwsbcps" path="res://Scenes/Utility/game_manager.tscn" id="6_hh6eh"]
+[ext_resource type="AudioStream" uid="uid://3uwwi8wgwk0n" path="res://Assets/Audio/sandy-beach-calm-waves-water-nature-sounds-8052.mp3" id="7_mixkh"]
 [ext_resource type="PackedScene" uid="uid://dajhi3igfxlyu" path="res://Scenes/Enemy/enemy_one.tscn" id="8_5wj7q"]
 [ext_resource type="PackedScene" uid="uid://delall7nnqtfy" path="res://Scenes/Utility/Enemy_Spawner.tscn" id="9_2uli5"]
 
@@ -226,3 +227,7 @@ position = Vector2(-116, 398)
 [node name="loots" type="Node2D" parent="." groups=["loot"]]
 
 [node name="GameManager" parent="." instance=ExtResource("6_hh6eh")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_mixkh")
+autoplay = true
