@@ -30,6 +30,7 @@ func collect():
 	artwork.visible = false
 	return experience
 
+# THIS PART IS NO LONGER USED
 # THIS HANDLES THE PICKUP FUNCTION WHEN PLAYER TOUCHES THE OBJECT
 #func _on_area_2d_body_entered(body):
 	#if body.has_method("isPlayer"):

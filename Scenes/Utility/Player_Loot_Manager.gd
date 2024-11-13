@@ -8,11 +8,16 @@ var collected_exp = 0
 var current_loot = 0
 
 # GUI Initializations
-@onready var xpBar = get_node("%xp_bar")
-@onready var label_lvl = get_node("%Label_Level")
+@onready var gui = get_tree().get_first_node_in_group("gui")
+#@onready var xpBar = get_node("%xp_bar")
+#@onready var label_lvl = get_node("%Label_Level")
+var xpBar
+var label_lvl 
 
 func _ready():
 	setXpBar(experience,calculate_exp_cap())
+	label_lvl = gui.get_level_label()
+	xpBar = gui.get_xp_bar()
 
 func _on_grab_area_area_entered(area):
 	if area.is_in_group("loot"):
@@ -34,7 +39,7 @@ func calculate_exp(exp):
 	if experience + collected_exp >= exp_required :
 		collected_exp -= exp_required - experience
 		exp_level += 1
-		label_lvl.text = str("Level: ",exp_level)
+		#label_lvl.text = str("Level: ",exp_level)
 		experience = 0
 		exp_required = calculate_exp_cap()
 		calculate_exp(0)
@@ -56,6 +61,6 @@ func calculate_exp_cap():
 
 # GUI Functions
 func setXpBar(set_value=1, set_max_value=100):
-	xpBar.value = set_value
-	xpBar.max_value = set_max_value
-	
+	#xpBar.value = set_value
+	#xpBar.max_value = set_max_value
+	pass

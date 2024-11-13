@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://34pt5xoerdqu"]
+[gd_scene load_steps=16 format=3 uid="uid://34pt5xoerdqu"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2ehxd"]
 [ext_resource type="Texture2D" uid="uid://dmb8e2wr6sjra" path="res://Assets/Packs/Beach Assets/Characters.png" id="1_bdgdj"]
@@ -6,9 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://mihl6t5rkuhn" path="res://Scenes/Utility/Hurtbox.tscn" id="4_dvh0p"]
 [ext_resource type="PackedScene" uid="uid://th61fyk6uifg" path="res://Scenes/Attack/Attack.tscn" id="5_wvhug"]
 [ext_resource type="PackedScene" uid="uid://cki2eu8uu4ip4" path="res://Scenes/Utility/Player_Loot_Manager.tscn" id="6_jefjb"]
-[ext_resource type="Texture2D" uid="uid://c57h5y4k0il7l" path="res://Assets/Images/GUI/exp_background.png" id="7_b7epj"]
-[ext_resource type="Texture2D" uid="uid://g6tuww6k7fif" path="res://Assets/Images/GUI/exp_progress.png" id="8_lia1s"]
-[ext_resource type="Texture2D" uid="uid://dscc8otquwo33" path="res://Assets/Images/tape.png" id="9_rej5m"]
+[ext_resource type="PackedScene" uid="uid://bova6oelvim41" path="res://Scenes/Utility/GUI.tscn" id="7_snrmv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y6i4k"]
 radius = 4.0
@@ -109,60 +107,7 @@ position = Vector2(0, 6)
 [node name="PlayerLootManager" parent="." instance=ExtResource("6_jefjb")]
 position = Vector2(0, 7)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="GUI" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="xp_bar" type="TextureProgressBar" parent="CanvasLayer/GUI"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture_under = ExtResource("7_b7epj")
-texture_progress = ExtResource("8_lia1s")
-
-[node name="Label_Level" type="Label" parent="CanvasLayer/GUI/xp_bar"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 6.0
-offset_top = -3.0
-offset_right = 106.0
-offset_bottom = 20.0
-text = "Level 1"
-vertical_alignment = 1
-
-[node name="time_bar" type="TextureProgressBar" parent="CanvasLayer/GUI" groups=["timebar"]]
-layout_mode = 0
-offset_top = 20.0
-offset_right = 640.0
-offset_bottom = 40.0
-texture_under = ExtResource("7_b7epj")
-texture_progress = ExtResource("8_lia1s")
-
-[node name="time_label" type="Label" parent="CanvasLayer/GUI/time_bar" groups=["timelabel"]]
-layout_mode = 0
-offset_left = 3.0
-offset_top = -4.0
-offset_right = 43.0
-offset_bottom = 19.0
-text = "time"
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/GUI"]
-position = Vector2(28, 66)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_rej5m")
-
-[node name="Label" type="Label" parent="CanvasLayer/GUI/Sprite2D" groups=["loot_collected"]]
-offset_left = 62.0
-offset_top = -44.0
-offset_right = 134.0
-offset_bottom = 44.0
-theme_override_font_sizes/font_size = 64
-text = "x0"
+[node name="CanvasLayer" parent="." instance=ExtResource("7_snrmv")]
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 

@@ -12,8 +12,6 @@ var projectile_cooldown = true
 var hp=80
 
 
-
-
 var combat_mode = true
 
 # PRELOAD WEAPONS
