@@ -5,11 +5,12 @@ extends CharacterBody2D
 @onready var marker_2d = $Marker2D
 
 # SOME PLAYER VARIABLES LIKE STATS
-const SPEED = 300.0
+const SPEED = 150.0
 const DASH_SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 var projectile_cooldown = true
-var isDashing = false
+var hp=80
+
 
 var combat_mode = true
 
@@ -53,53 +54,37 @@ func gameover_condition():
 	if Global.player_health <=0:
 		get_tree().quit()
 
-# THIS FUNCTION HANDLES PLAYER MOVEMENT
-func _physics_process(delta):
-	# get dash button pressed
-	#var dashPressed = Input.get_action_strength("gameplay_dash")
-	#if dashPressed>0:
-		#isDashing = true
-	#else : isDashing = false
-	# Get the input direction and handle the movement/deceleration.
+func movement():
 	var direction = Input.get_vector("gameplay_left","gameplay_right","gameplay_up","gameplay_down")
+	velocity = direction.normalized()*SPEED
+	move_and_slide()
+	
 	if direction:
 		# this is for footstep sfx
 		if timer.time_left <= 0:
 			footstep_sfx.pitch_scale = randf_range(0.8,1.2)
 			footstep_sfx.play()
-			#if isDashing:
-				#timer.start(0.3)
-			#else : timer.start(0.4)
 			timer.start(0.4)
-		if isDashing:
-			velocity = direction * DASH_SPEED
-		else: velocity = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
 
-	move_and_slide()
+# THIS FUNCTION HANDLES PLAYER MOVEMENT
+func _physics_process(delta):
+	movement()
 	playerRaycast()
 	#weaponSwitch()
 	gameover_condition()
 
 # THIS HANDLES INPUT FOR DASHING
 func _process(delta):
-	if Input.is_action_just_pressed("gameplay_dash") :
-		print("dash!")
-		isDashing=true
-		await get_tree().create_timer(0.3).timeout
-		isDashing=false
-		
-		
+	pass
+	#if Input.is_action_just_pressed("gameplay_dash") :
+		#print("dash!")
+		#isDashing=true
+		#await get_tree().create_timer(0.3).timeout
+		#isDashing=false
 
 
-# THIS FUNCTION IS TO APPLY DAMAGE TO PLAYER
-func _on_hitbox_area_entered(area):
-	if area.has_method("damagePlayer"):
-		
-		Global.player_health -= 1
-		print(Global.player_health)
-		await get_tree().create_timer(0.4).timeout
-		
-		#get_tree().quit()
+func _on_hurtbox_hurt(damage, _angle, _knockback):
+	hp -= damage
+	print(hp)
+
+

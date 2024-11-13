@@ -4,6 +4,7 @@ extends Resource
 
 @export var name:String
 @export var id:String
+@export var experience:int
 @export var description:String
 @export var pickup_sound:AudioStreamWAV
 @export var artwork:CompressedTexture2D
