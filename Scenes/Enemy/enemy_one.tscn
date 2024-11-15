@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dajhi3igfxlyu"]
+[gd_scene load_steps=16 format=3 uid="uid://dajhi3igfxlyu"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy_one.gd" id="1_p66wu"]
 [ext_resource type="Texture2D" uid="uid://dh57xuwepf7fh" path="res://Custom Resources/Monsters/monster fish/Cacodaemon Sprite Sheet.png" id="2_k65sn"]
 [ext_resource type="PackedScene" uid="uid://mihl6t5rkuhn" path="res://Scenes/Utility/Hurtbox.tscn" id="3_gglmj"]
 [ext_resource type="PackedScene" uid="uid://dw7lulq3cp78o" path="res://Scenes/Utility/Hitbox.tscn" id="4_oxq4m"]
+[ext_resource type="Texture2D" uid="uid://cx2m6wracxwa2" path="res://Assets/Packs/GJL Commission Assets/plastic monster/Crzmont_plasticMonster_walk_Sheet.png" id="5_qf2qe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_75v8u"]
 radius = 30.0167
@@ -14,12 +15,64 @@ radius = 29.4279
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlu4k"]
 radius = 32.0624
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxn2m"]
+atlas = ExtResource("5_qf2qe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhxa1"]
+atlas = ExtResource("5_qf2qe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ob0u"]
+atlas = ExtResource("5_qf2qe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neitx"]
+atlas = ExtResource("5_qf2qe")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhv18"]
+atlas = ExtResource("5_qf2qe")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1snaq"]
+atlas = ExtResource("5_qf2qe")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o4shs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxn2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhxa1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ob0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neitx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhv18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1snaq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
 [node name="EnemyOne" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_p66wu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-13, -12)
 scale = Vector2(2, 2)
 texture = ExtResource("2_k65sn")
@@ -50,6 +103,13 @@ position = Vector2(-11, -11)
 shape = SubResource("CircleShape2D_vlu4k")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-10, -12)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_o4shs")
+autoplay = "default"
+frame_progress = 0.223979
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 

@@ -3,9 +3,10 @@ extends CharacterBody2D
 @onready var footstep_sfx = $AudioStreamPlayer2D
 @onready var timer = $Timer
 @onready var marker_2d = $Marker2D
+@onready var animator = $AnimatedSprite2D
 
 # SOME PLAYER VARIABLES LIKE STATS
-const SPEED = 150.0
+const SPEED = 120.0
 const DASH_SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 var projectile_cooldown = true
@@ -60,11 +61,18 @@ func movement():
 	move_and_slide()
 	
 	if direction:
+		animator.play("run")
+		if direction.x >0:
+			animator.flip_h = true
+		else:
+			animator.flip_h = false
 		# this is for footstep sfx
 		if timer.time_left <= 0:
 			footstep_sfx.pitch_scale = randf_range(0.8,1.2)
 			footstep_sfx.play()
 			timer.start(0.4)
+	else:
+		animator.play("idle")
 
 # THIS FUNCTION HANDLES PLAYER MOVEMENT
 func _physics_process(delta):
