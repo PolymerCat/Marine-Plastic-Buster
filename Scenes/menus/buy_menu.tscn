@@ -1,0 +1,204 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7wj2pb4otvpy"]
+
+[ext_resource type="FontFile" uid="uid://dhgqkm7pe5cg0" path="res://Assets/Fonts/ARCADECLASSIC.TTF" id="1_58bwo"]
+[ext_resource type="Texture2D" uid="uid://cc5ljbw2687ht" path="res://icon.svg" id="2_hddle"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yih78"]
+bg_color = Color(0.215686, 0.470588, 0.137255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="BuyMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 43.0
+offset_right = 1059.0
+offset_bottom = 595.0
+color = Color(0.2, 0.247059, 0.356863, 1)
+
+[node name="Icon" type="Sprite2D" parent="ColorRect"]
+position = Vector2(1123, 327)
+scale = Vector2(0.851563, 0.875)
+texture = ExtResource("2_hddle")
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.5
+offset_top = 31.0
+offset_right = 82.5
+offset_bottom = 92.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_font_sizes/font_size = 58
+text = "Store"
+
+[node name="PlayerSpeed" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -344.0
+offset_top = 111.0
+offset_right = -127.0
+offset_bottom = 172.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_font_sizes/font_size = 34
+text = "Player  Speed"
+horizontal_alignment = 1
+
+[node name="PSValue" type="Label" parent="ColorRect/PlayerSpeed"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -107.0
+offset_top = 41.0
+offset_right = 103.0
+offset_bottom = 87.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_font_sizes/font_size = 34
+text = "100"
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="ColorRect/PlayerSpeed"]
+layout_mode = 0
+offset_left = 50.5
+offset_top = 85.0
+offset_right = 164.5
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_yih78")
+text = "Upgrade"
+
+[node name="WeaponSpeed" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 117.5
+offset_top = 112.0
+offset_right = 334.5
+offset_bottom = 173.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_font_sizes/font_size = 34
+text = "Weapon Speed"
+horizontal_alignment = 1
+
+[node name="WSValue" type="Label" parent="ColorRect/WeaponSpeed"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.5
+offset_top = 42.0
+offset_right = 94.5
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_font_sizes/font_size = 34
+text = "100"
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="ColorRect/WeaponSpeed"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 80.0
+offset_right = 165.0
+offset_bottom = 130.0
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_yih78")
+text = "Upgrade"
+
+[node name="WeaponDamage" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -351.5
+offset_top = 320.0
+offset_right = -119.5
+offset_bottom = 381.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_font_sizes/font_size = 34
+text = "Weapon Damage"
+horizontal_alignment = 1
+
+[node name="WDValue" type="Label" parent="ColorRect/WeaponDamage"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.5
+offset_top = 42.0
+offset_right = 94.5
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_font_sizes/font_size = 34
+text = "100"
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="ColorRect/WeaponDamage"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 85.0
+offset_right = 170.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_yih78")
+text = "Upgrade"
+
+[node name="WeaponDamage2" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 109.5
+offset_top = 319.0
+offset_right = 341.5
+offset_bottom = 380.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_font_sizes/font_size = 34
+text = "Net Weapon"
+horizontal_alignment = 1
+
+[node name="WDValue" type="Label" parent="ColorRect/WeaponDamage2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.5
+offset_top = 42.0
+offset_right = 94.5
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_font_sizes/font_size = 34
+text = "100"
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="ColorRect/WeaponDamage2"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 85.0
+offset_right = 170.0
+offset_bottom = 135.0
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_yih78")
+text = "Upgrade"
