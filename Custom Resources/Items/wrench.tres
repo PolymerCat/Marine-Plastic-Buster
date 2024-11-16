@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cbqrhepqp6uu5"]
+
+[ext_resource type="Texture2D" uid="uid://fxxcvxjwutet" path="res://Assets/Images/wrench.png" id="1_sig6d"]
+[ext_resource type="Script" path="res://Custom Resources/Items/Item.gd" id="1_smuhv"]
+[ext_resource type="AudioStream" uid="uid://dy36h3r8pwiaf" path="res://Assets/Audio/ClothesSyntheticfabric3.wav" id="2_2uyli"]
+
+[resource]
+script = ExtResource("1_smuhv")
+name = "Wrench"
+id = "I002"
+description = "A steel object that was used to fix things. Can be used as a weapon"
+pickup_sound = ExtResource("2_2uyli")
+artwork = ExtResource("1_sig6d")
+plastic_type = "Type 2"

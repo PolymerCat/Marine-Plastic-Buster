@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cabsvkj5y12b"]
+
+[ext_resource type="Texture2D" uid="uid://dscc8otquwo33" path="res://Assets/Images/tape.png" id="1_c2shv"]
+[ext_resource type="Script" path="res://Custom Resources/Items/Item.gd" id="1_c182i"]
+[ext_resource type="AudioStream" uid="uid://dy36h3r8pwiaf" path="res://Assets/Audio/ClothesSyntheticfabric3.wav" id="1_ikj4g"]
+
+[resource]
+script = ExtResource("1_c182i")
+name = "Plastic"
+id = "I001"
+experience = 1
+description = "A remnant of the old civillization. It brought the world to ruin"
+pickup_sound = ExtResource("1_ikj4g")
+artwork = ExtResource("1_c2shv")
+plastic_type = "Type 1"
