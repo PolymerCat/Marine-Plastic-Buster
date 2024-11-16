@@ -1,0 +1,114 @@
+[gd_scene load_steps=16 format=3 uid="uid://34pt5xoerdqu"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_2ehxd"]
+[ext_resource type="Texture2D" uid="uid://dmb8e2wr6sjra" path="res://Assets/Packs/Beach Assets/Characters.png" id="1_bdgdj"]
+[ext_resource type="AudioStream" uid="uid://brtik3aekcn68" path="res://Assets/Audio/FootstepsWetGravelStones1.wav" id="3_22omq"]
+[ext_resource type="PackedScene" uid="uid://mihl6t5rkuhn" path="res://Scenes/Utility/Hurtbox.tscn" id="4_dvh0p"]
+[ext_resource type="PackedScene" uid="uid://th61fyk6uifg" path="res://Scenes/Attack/Attack.tscn" id="5_wvhug"]
+[ext_resource type="PackedScene" uid="uid://cki2eu8uu4ip4" path="res://Scenes/Utility/Player_Loot_Manager.tscn" id="6_jefjb"]
+[ext_resource type="PackedScene" uid="uid://bova6oelvim41" path="res://Scenes/Utility/GUI.tscn" id="7_snrmv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y6i4k"]
+radius = 4.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywins"]
+atlas = ExtResource("1_bdgdj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ptxm"]
+atlas = ExtResource("1_bdgdj")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcoo6"]
+atlas = ExtResource("1_bdgdj")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpyse"]
+atlas = ExtResource("1_bdgdj")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drn3e"]
+atlas = ExtResource("1_bdgdj")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fypue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywins")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ptxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcoo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpyse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drn3e")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_whimk"]
+radius = 3.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_2ehxd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_y6i4k")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fypue")
+animation = &"run"
+autoplay = "idle"
+frame = 3
+frame_progress = 0.774709
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_22omq")
+volume_db = -20.813
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 7)
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_dvh0p")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_whimk")
+
+[node name="Attack" parent="." instance=ExtResource("5_wvhug")]
+position = Vector2(0, 6)
+
+[node name="PlayerLootManager" parent="." instance=ExtResource("6_jefjb")]
+position = Vector2(0, 7)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("7_snrmv")]
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+
+[editable path="Hurtbox"]
