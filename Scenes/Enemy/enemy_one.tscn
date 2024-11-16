@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://dajhi3igfxlyu"]
+[gd_scene load_steps=24 format=3 uid="uid://dajhi3igfxlyu"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy_one.gd" id="1_p66wu"]
 [ext_resource type="Texture2D" uid="uid://dh57xuwepf7fh" path="res://Custom Resources/Monsters/monster fish/Cacodaemon Sprite Sheet.png" id="2_k65sn"]
 [ext_resource type="PackedScene" uid="uid://mihl6t5rkuhn" path="res://Scenes/Utility/Hurtbox.tscn" id="3_gglmj"]
 [ext_resource type="PackedScene" uid="uid://dw7lulq3cp78o" path="res://Scenes/Utility/Hitbox.tscn" id="4_oxq4m"]
+[ext_resource type="AudioStream" uid="uid://30k33mqfg62y" path="res://Assets/Audio/enemy_death.ogg" id="5_51d7v"]
 [ext_resource type="Texture2D" uid="uid://cx2m6wracxwa2" path="res://Assets/Packs/GJL Commission Assets/plastic monster/Crzmont_plasticMonster_walk_Sheet.png" id="5_qf2qe"]
+[ext_resource type="Texture2D" uid="uid://c8qwbnqql87v6" path="res://Assets/Packs/GJL Commission Assets/plastic monster/Crzmont_plasticMonster_die_Sheet.png" id="6_ldhnc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_75v8u"]
 radius = 30.0167
@@ -39,6 +41,30 @@ region = Rect2(32, 32, 32, 32)
 atlas = ExtResource("5_qf2qe")
 region = Rect2(64, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jevot"]
+atlas = ExtResource("6_ldhnc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0uk6"]
+atlas = ExtResource("6_ldhnc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekuu4"]
+atlas = ExtResource("6_ldhnc")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eb77"]
+atlas = ExtResource("6_ldhnc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odax5"]
+atlas = ExtResource("6_ldhnc")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xndyg"]
+atlas = ExtResource("6_ldhnc")
+region = Rect2(64, 32, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_o4shs"]
 animations = [{
 "frames": [{
@@ -63,6 +89,29 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jevot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0uk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekuu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eb77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odax5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xndyg")
+}],
+"loop": false,
+"name": &"die",
+"speed": 10.0
 }]
 
 [node name="EnemyOne" type="CharacterBody2D"]
@@ -103,13 +152,17 @@ position = Vector2(-11, -11)
 shape = SubResource("CircleShape2D_vlu4k")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_51d7v")
+pitch_scale = 0.64
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-10, -12)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_o4shs")
+animation = &"die"
 autoplay = "default"
-frame_progress = 0.223979
+frame = 5
+frame_progress = 0.321663
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://th61fyk6uifg"]
+[gd_scene load_steps=4 format=3 uid="uid://th61fyk6uifg"]
 
 [ext_resource type="Script" path="res://Scenes/Attack/Attack.gd" id="1_q7xyt"]
+[ext_resource type="AudioStream" uid="uid://cv7sm75jmql7t" path="res://Assets/Audio/wood_hit.wav" id="2_bvbu7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hlg47"]
 radius = 210.0
@@ -23,6 +24,9 @@ monitorable = false
 shape = SubResource("CircleShape2D_hlg47")
 
 [node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="stick_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_bvbu7")
 
 [connection signal="timeout" from="StickAttackTimer" to="." method="_on_stick_attack_timer_timeout"]
 [connection signal="timeout" from="StickTimer" to="." method="_on_stick_timer_timeout"]

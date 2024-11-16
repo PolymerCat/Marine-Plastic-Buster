@@ -7,6 +7,8 @@ var knockback = Vector2.ZERO
 var experience = 1
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
+@onready var animator = $AnimatedSprite2D
+@onready var sfx = $AudioStreamPlayer2D
 
 
 var loot_drop = preload("res://Scenes/item scenes/pickup_plastic.tscn")
@@ -22,11 +24,17 @@ func _physics_process(delta):
 
 func death():
 	emit_signal("remove_from_array", self)
+	#velocity = Vector2.ZERO
+	animator.play("die")
+	sfx.play()
+	await get_tree().create_timer(0.5).timeout
 	var new_loot = loot_drop.instantiate()
 	new_loot.global_position = global_position
 	new_loot.experience = experience
 	loot_base.call_deferred("add_child",new_loot)
 	queue_free()
+
+
 
 func _on_hurtbox_hurt(damage,angle,knockback_amount):
 	hp -= damage

@@ -4,7 +4,7 @@ extends Area2D
 @export var hp = 1
 @export var speed = 100
 @export var damage = 5
-@export var knockback_amount = 100
+@export var knockback_amount = 150
 @export var attack_size = 1.0
 
 var target = Vector2.ZERO

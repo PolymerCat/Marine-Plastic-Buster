@@ -9,6 +9,7 @@ var stick = preload("res://Scenes/Attack/Stick.tscn")
 @onready var stick_timer = $StickTimer
 @onready var stick_attack_timer = $StickAttackTimer
 @onready var marker = $Marker2D
+@onready var stick_sfx = $stick_sfx
 
 # Attack Stats (Stick)
 var stick_ammo = 0
@@ -39,6 +40,7 @@ func _on_stick_timer_timeout():
 func _on_stick_attack_timer_timeout():
 	if stick_ammo > 0:
 		var stick_instance = stick.instantiate()
+		stick_sfx.play(0.5)
 		stick_instance.position = marker.global_position
 		stick_instance.target = get_random_target()
 		stick_instance.level = stick_level
