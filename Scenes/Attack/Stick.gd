@@ -10,11 +10,13 @@ extends Area2D
 var target = Vector2.ZERO
 var angle = Vector2.ZERO
 @onready var hit_sfx = $hit_sfx
-
+@onready var sprite = $Sprite2D
+@onready var throw_sfx = $throw_sfx
 @onready var player = get_tree().get_first_node_in_group("player")
 signal remove_from_array(object)
 
 func _ready():
+	throw_sfx.play()
 	# Sets the target shoot towards.
 	angle = global_position.direction_to(target)
 	rotation = angle.angle() + deg_to_rad(135)
@@ -36,7 +38,9 @@ func _physics_process(delta):
 	position += angle*speed*delta
 
 func on_enemy_hit(charge = 1):
+	sprite.visible = false
 	hit_sfx.play()
+	await get_tree().create_timer(0.5).timeout
 	hp -= charge
 	if hp <= 0:
 		emit_signal("remove_from_array", self)

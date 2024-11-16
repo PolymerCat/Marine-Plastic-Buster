@@ -6,7 +6,10 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var timer_label = get_tree().get_first_node_in_group("timelabel")
 @onready var gui = get_tree().get_first_node_in_group("gui")
+@onready var gui_anim = get_tree().get_first_node_in_group("gui_anim")
+
 @onready var timer = $Timer
+@onready var audio = $audio
 
 var round_time = 40
 var rounds = 1
@@ -24,11 +27,21 @@ func _process(delta):
 	timeBar.value = timer.time_left
 	gui.time_bar.value = timer.time_left
 	
+	# Will play clock ticking sound when 10 seconds left
+	if audio.playing:
+		pass
+	elif not audio.playing and timer.time_left <=10:
+		audio.play(6.0)
+		gui_anim.play("timer_ending")
+	else:
+		gui_anim.play("RESET")
+	
 	if player.hp<=0:
 		get_tree().quit()
 
 func time_left():
 	var time = timer.time_left
+	
 	return time
 
 func _on_timer_timeout():

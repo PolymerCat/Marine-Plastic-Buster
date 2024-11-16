@@ -1,9 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://bova6oelvim41"]
+[gd_scene load_steps=8 format=3 uid="uid://bova6oelvim41"]
 
 [ext_resource type="Texture2D" uid="uid://c57h5y4k0il7l" path="res://Assets/Images/GUI/exp_background.png" id="1_i8yab"]
 [ext_resource type="Script" path="res://Scenes/Utility/GUI.gd" id="1_njr27"]
 [ext_resource type="Texture2D" uid="uid://g6tuww6k7fif" path="res://Assets/Images/GUI/exp_progress.png" id="2_l4uwh"]
 [ext_resource type="Texture2D" uid="uid://dscc8otquwo33" path="res://Assets/Images/tape.png" id="3_axsg3"]
+
+[sub_resource type="Animation" id="Animation_qobdc"]
+resource_name = "timer_ending"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GUI/time_bar/time_label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_14sb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GUI/time_bar/time_label:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_og42d"]
+_data = {
+"RESET": SubResource("Animation_14sb4"),
+"timer_ending": SubResource("Animation_qobdc")
+}
 
 [node name="GUI_manager" type="CanvasLayer" groups=["gui"]]
 script = ExtResource("1_njr27")
@@ -16,6 +54,7 @@ offset_bottom = 40.0
 
 [node name="xp_bar" type="TextureProgressBar" parent="GUI"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -34,9 +73,10 @@ vertical_alignment = 1
 
 [node name="time_bar" type="TextureProgressBar" parent="GUI" groups=["timebar"]]
 layout_mode = 0
-offset_top = 20.0
-offset_right = 640.0
-offset_bottom = 40.0
+offset_left = 271.0
+offset_top = 1.0
+offset_right = 911.0
+offset_bottom = 21.0
 texture_under = ExtResource("1_i8yab")
 texture_progress = ExtResource("2_l4uwh")
 
@@ -60,3 +100,9 @@ offset_right = 134.0
 offset_bottom = 44.0
 theme_override_font_sizes/font_size = 64
 text = "x0"
+
+[node name="gui_animation" type="AnimationPlayer" parent="GUI" groups=["gui_anim"]]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_og42d")
+}

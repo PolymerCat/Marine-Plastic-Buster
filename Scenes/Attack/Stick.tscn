@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://63nchptwy4rq"]
+[gd_scene load_steps=6 format=3 uid="uid://63nchptwy4rq"]
 
 [ext_resource type="Script" path="res://Scenes/Attack/Stick.gd" id="1_m36s8"]
 [ext_resource type="Texture2D" uid="uid://dgpur7j7fs4o3" path="res://Assets/Images/stick art.png" id="2_hlqf0"]
 [ext_resource type="AudioStream" uid="uid://cv7sm75jmql7t" path="res://Assets/Audio/wood_hit.wav" id="3_e43cl"]
+[ext_resource type="AudioStream" uid="uid://dece0y3gog0w5" path="res://Assets/Audio/woosh.wav" id="4_21n4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bo1l"]
 size = Vector2(11.3961, 74.7773)
@@ -32,5 +33,8 @@ shape = SubResource("RectangleShape2D_4bo1l")
 [node name="hit_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_e43cl")
 volume_db = 6.559
+
+[node name="throw_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_21n4u")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

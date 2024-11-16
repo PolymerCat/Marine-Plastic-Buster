@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var timer = $Timer
 @onready var marker_2d = $Marker2D
 @onready var animator = $AnimatedSprite2D
-
+@onready var health_bar = get_tree().get_first_node_in_group("health_bar")
 # SOME PLAYER VARIABLES LIKE STATS
 const SPEED = 120.0
 const DASH_SPEED = 500.0
@@ -17,6 +17,9 @@ var combat_mode = true
 
 # PRELOAD WEAPONS
 var lighter = preload("res://Custom Resources/Projectiles/Lighter_Projectile.tscn")
+
+func _ready():
+	health_bar.max_value=hp
 
 # THIS FUNCTION IS FOR THE MOUSE AIMING AND SHOOTING
 func playerRaycast():
@@ -83,7 +86,7 @@ func _physics_process(delta):
 
 # THIS HANDLES INPUT FOR DASHING
 func _process(delta):
-	pass
+	health_bar.value = hp
 	#if Input.is_action_just_pressed("gameplay_dash") :
 		#print("dash!")
 		#isDashing=true
