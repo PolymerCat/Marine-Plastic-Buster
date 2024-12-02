@@ -7,6 +7,7 @@ extends Node2D
 @onready var timer_label = get_tree().get_first_node_in_group("timelabel")
 @onready var gui = get_tree().get_first_node_in_group("gui")
 @onready var gui_anim = get_tree().get_first_node_in_group("gui_anim")
+@onready var buy_menu = get_tree().get_first_node_in_group("buy_menu")
 
 @onready var timer = $Timer
 @onready var audio = $audio
@@ -45,6 +46,7 @@ func time_left():
 	return time
 
 func _on_timer_timeout():
+	buy_menu.show_buy_menu()
 	# Each new round will increase in time
 	if rounds<=5:
 		rounds+=1

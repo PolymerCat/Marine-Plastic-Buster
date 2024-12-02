@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var animator = $AnimatedSprite2D
 @onready var health_bar = get_tree().get_first_node_in_group("health_bar")
 # SOME PLAYER VARIABLES LIKE STATS
-const SPEED = 120.0
+var SPEED = 120.0
 const DASH_SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 var projectile_cooldown = true

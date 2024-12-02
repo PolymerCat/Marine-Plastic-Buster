@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://34pt5xoerdqu"]
+[gd_scene load_steps=27 format=3 uid="uid://34pt5xoerdqu"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2ehxd"]
 [ext_resource type="AudioStream" uid="uid://brtik3aekcn68" path="res://Assets/Audio/FootstepsWetGravelStones1.wav" id="3_22omq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cki2eu8uu4ip4" path="res://Scenes/Utility/Player_Loot_Manager.tscn" id="6_jefjb"]
 [ext_resource type="Texture2D" uid="uid://dggvgkpc0bpuj" path="res://Assets/Packs/GJL Commission Assets/Player/Crzmont_player_run_Sheet.png" id="7_hs7ka"]
 [ext_resource type="PackedScene" uid="uid://bova6oelvim41" path="res://Scenes/Utility/GUI.tscn" id="7_snrmv"]
+[ext_resource type="Script" path="res://Scenes/menus/buy_menu.gd" id="9_6knvn"]
 [ext_resource type="Texture2D" uid="uid://boucogwqjot3w" path="res://Assets/Images/GUI/healthbar.png" id="9_xl753"]
 [ext_resource type="Texture2D" uid="uid://c3ydnt6un31ja" path="res://Assets/Images/GUI/health.png" id="10_4b5e0"]
 
@@ -159,6 +160,7 @@ animation = &"run"
 autoplay = "run"
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_snrmv")]
+script = ExtResource("9_6knvn")
 
 [node name="health_bar" type="TextureProgressBar" parent="." groups=["health_bar"]]
 offset_left = -3.0

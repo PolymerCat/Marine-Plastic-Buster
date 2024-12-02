@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7wj2pb4otvpy"]
+[gd_scene load_steps=6 format=3 uid="uid://b7wj2pb4otvpy"]
 
-[ext_resource type="FontFile" uid="uid://dhgqkm7pe5cg0" path="res://Assets/Fonts/ARCADECLASSIC.TTF" id="1_58bwo"]
-[ext_resource type="Texture2D" uid="uid://cc5ljbw2687ht" path="res://icon.svg" id="2_hddle"]
+[ext_resource type="Texture2D" uid="uid://cc5ljbw2687ht" path="res://icon.svg" id="1_2qa5e"]
+[ext_resource type="Script" path="res://Scenes/menus/buy_menu.gd" id="1_sfh4a"]
+[ext_resource type="FontFile" uid="uid://dhgqkm7pe5cg0" path="res://Assets/Fonts/ARCADECLASSIC.TTF" id="2_48yiy"]
+[ext_resource type="Script" path="res://Scenes/menus/PSValue.gd" id="3_v6nbt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yih78"]
 bg_color = Color(0.215686, 0.470588, 0.137255, 1)
@@ -15,6 +17,7 @@ layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_sfh4a")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -27,7 +30,7 @@ color = Color(0.2, 0.247059, 0.356863, 1)
 [node name="Icon" type="Sprite2D" parent="ColorRect"]
 position = Vector2(1123, 327)
 scale = Vector2(0.851563, 0.875)
-texture = ExtResource("2_hddle")
+texture = ExtResource("1_2qa5e")
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 1
@@ -39,7 +42,7 @@ offset_top = 31.0
 offset_right = 82.5
 offset_bottom = 92.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_fonts/font = ExtResource("2_48yiy")
 theme_override_font_sizes/font_size = 58
 text = "Store"
 
@@ -53,7 +56,7 @@ offset_top = 111.0
 offset_right = -127.0
 offset_bottom = 172.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_fonts/font = ExtResource("2_48yiy")
 theme_override_font_sizes/font_size = 34
 text = "Player  Speed"
 horizontal_alignment = 1
@@ -68,10 +71,11 @@ offset_top = 41.0
 offset_right = 103.0
 offset_bottom = 87.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_fonts/font = ExtResource("2_48yiy")
 theme_override_font_sizes/font_size = 34
 text = "100"
 horizontal_alignment = 1
+script = ExtResource("3_v6nbt")
 
 [node name="Button3" type="Button" parent="ColorRect/PlayerSpeed"]
 layout_mode = 0
@@ -93,7 +97,7 @@ offset_top = 112.0
 offset_right = 334.5
 offset_bottom = 173.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_fonts/font = ExtResource("2_48yiy")
 theme_override_font_sizes/font_size = 34
 text = "Weapon Speed"
 horizontal_alignment = 1
@@ -108,7 +112,7 @@ offset_top = 42.0
 offset_right = 94.5
 offset_bottom = 88.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_fonts/font = ExtResource("2_48yiy")
 theme_override_font_sizes/font_size = 34
 text = "100"
 horizontal_alignment = 1
@@ -133,7 +137,7 @@ offset_top = 320.0
 offset_right = -119.5
 offset_bottom = 381.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_fonts/font = ExtResource("2_48yiy")
 theme_override_font_sizes/font_size = 34
 text = "Weapon Damage"
 horizontal_alignment = 1
@@ -148,7 +152,7 @@ offset_top = 42.0
 offset_right = 94.5
 offset_bottom = 88.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_fonts/font = ExtResource("2_48yiy")
 theme_override_font_sizes/font_size = 34
 text = "100"
 horizontal_alignment = 1
@@ -173,7 +177,7 @@ offset_top = 319.0
 offset_right = 341.5
 offset_bottom = 380.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_fonts/font = ExtResource("2_48yiy")
 theme_override_font_sizes/font_size = 34
 text = "Net Weapon"
 horizontal_alignment = 1
@@ -188,7 +192,7 @@ offset_top = 42.0
 offset_right = 94.5
 offset_bottom = 88.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_58bwo")
+theme_override_fonts/font = ExtResource("2_48yiy")
 theme_override_font_sizes/font_size = 34
 text = "100"
 horizontal_alignment = 1
@@ -202,3 +206,13 @@ offset_bottom = 135.0
 theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_yih78")
 text = "Upgrade"
+
+[node name="Continue" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 490.0
+offset_right = 522.0
+offset_bottom = 541.0
+text = "Continue"
+
+[connection signal="pressed" from="ColorRect/Continue" to="." method="_on_continue_pressed"]
