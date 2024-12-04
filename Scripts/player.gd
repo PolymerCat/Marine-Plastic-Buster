@@ -5,6 +5,10 @@ extends CharacterBody2D
 @onready var marker_2d = $Marker2D
 @onready var animator = $AnimatedSprite2D
 @onready var health_bar = get_tree().get_first_node_in_group("health_bar")
+@export var knockback_recovery = 3.5
+@onready var hit_flash_player = $hitflash_player
+
+var knockback = Vector2.ZERO
 # SOME PLAYER VARIABLES LIKE STATS
 const SPEED = 120.0
 const DASH_SPEED = 500.0
@@ -59,8 +63,10 @@ func gameover_condition():
 		get_tree().quit()
 
 func movement():
+	knockback =knockback.move_toward(Vector2.UP, knockback_recovery)
 	var direction = Input.get_vector("gameplay_left","gameplay_right","gameplay_up","gameplay_down")
 	velocity = direction.normalized()*SPEED
+	velocity += knockback
 	move_and_slide()
 	
 	if direction:
@@ -79,6 +85,8 @@ func movement():
 
 # THIS FUNCTION HANDLES PLAYER MOVEMENT
 func _physics_process(delta):
+	
+	
 	movement()
 	playerRaycast()
 	#weaponSwitch()
@@ -95,7 +103,10 @@ func _process(delta):
 
 
 func _on_hurtbox_hurt(damage, _angle, _knockback):
+	hit_flash_player.play("hit_flash")
 	hp -= damage
-	print(hp)
+	if damage>5:
+		knockback = Vector2.UP * 4
+	#print(hp)
 
 

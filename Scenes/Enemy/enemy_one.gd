@@ -9,11 +9,15 @@ var experience = 1
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
 @onready var animator = $AnimatedSprite2D
 @onready var sfx = $AudioStreamPlayer2D
+@onready var hit_flash_player = $hit_flash_player
 
 
 var loot_drop = preload("res://Scenes/item scenes/pickup_plastic.tscn")
 
 signal remove_from_array(object)
+
+func _ready():
+	hit_flash_player.play("hit_flash")
 
 func _physics_process(delta):
 	knockback =knockback.move_toward(Vector2.ZERO, knockback_recovery)
@@ -37,6 +41,7 @@ func death():
 
 
 func _on_hurtbox_hurt(damage,angle,knockback_amount):
+	hit_flash_player.play("hit_flash")
 	hp -= damage
 	knockback = angle * knockback_amount
 	if hp<0:

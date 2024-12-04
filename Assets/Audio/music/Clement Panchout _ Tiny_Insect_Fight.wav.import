@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://51j8dl1sxcld"
+path="res://.godot/imported/Clement Panchout _ Tiny_Insect_Fight.wav-57c9a80c6610a1427025a5a302178cbd.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/music/Clement Panchout _ Tiny_Insect_Fight.wav"
+dest_files=["res://.godot/imported/Clement Panchout _ Tiny_Insect_Fight.wav-57c9a80c6610a1427025a5a302178cbd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

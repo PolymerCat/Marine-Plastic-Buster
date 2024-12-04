@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://34pt5xoerdqu"]
+[gd_scene load_steps=32 format=3 uid="uid://34pt5xoerdqu"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2ehxd"]
 [ext_resource type="AudioStream" uid="uid://brtik3aekcn68" path="res://Assets/Audio/FootstepsWetGravelStones1.wav" id="3_22omq"]
 [ext_resource type="PackedScene" uid="uid://mihl6t5rkuhn" path="res://Scenes/Utility/Hurtbox.tscn" id="4_dvh0p"]
 [ext_resource type="PackedScene" uid="uid://th61fyk6uifg" path="res://Scenes/Attack/Attack.tscn" id="5_wvhug"]
+[ext_resource type="Shader" uid="uid://cab40ddukgqwc" path="res://Scenes/hit_flash.tres" id="6_600xy"]
 [ext_resource type="Texture2D" uid="uid://dejnn4wh26uym" path="res://Assets/Packs/GJL Commission Assets/Player/Crzmont_player_idle_Sheet.png" id="6_ev1cr"]
 [ext_resource type="PackedScene" uid="uid://cki2eu8uu4ip4" path="res://Scenes/Utility/Player_Loot_Manager.tscn" id="6_jefjb"]
 [ext_resource type="Texture2D" uid="uid://dggvgkpc0bpuj" path="res://Assets/Packs/GJL Commission Assets/Player/Crzmont_player_run_Sheet.png" id="7_hs7ka"]
@@ -18,6 +19,11 @@ height = 18.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_whimk"]
 radius = 3.0
 height = 16.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cwr8w"]
+shader = ExtResource("6_600xy")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxwbh"]
 atlas = ExtResource("6_ev1cr")
@@ -116,11 +122,53 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gfhp2"]
+radius = 8.0
+height = 24.0
+
+[sub_resource type="Animation" id="Animation_se0wh"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bdsvg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x2cov"]
+_data = {
+"RESET": SubResource("Animation_bdsvg"),
+"hit_flash": SubResource("Animation_se0wh")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_2ehxd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_y6i4k")
 disabled = true
@@ -153,6 +201,7 @@ position = Vector2(0, 6)
 position = Vector2(0, 7)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_cwr8w")
 position = Vector2(3, 4)
 sprite_frames = SubResource("SpriteFrames_fypue")
 animation = &"run"
@@ -168,6 +217,19 @@ offset_bottom = 29.0
 scale = Vector2(0.36, 0.319999)
 texture_over = ExtResource("9_xl753")
 texture_progress = ExtResource("10_4b5e0")
+
+[node name="detectee" type="Area2D" parent="." groups=["player"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectee"]
+position = Vector2(1, 5)
+shape = SubResource("CapsuleShape2D_gfhp2")
+
+[node name="hitflash_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x2cov")
+}
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 

@@ -3,7 +3,6 @@ extends Node2D
 # Weapons
 var stick = preload("res://Scenes/Attack/Stick.tscn")
 
-
 # Initialize some necessary variables
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var stick_timer = $StickTimer

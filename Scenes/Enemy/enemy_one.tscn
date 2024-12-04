@@ -1,11 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://dajhi3igfxlyu"]
+[gd_scene load_steps=28 format=3 uid="uid://dajhi3igfxlyu"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/enemy_one.gd" id="1_p66wu"]
-[ext_resource type="Texture2D" uid="uid://dh57xuwepf7fh" path="res://Custom Resources/Monsters/monster fish/Cacodaemon Sprite Sheet.png" id="2_k65sn"]
 [ext_resource type="PackedScene" uid="uid://mihl6t5rkuhn" path="res://Scenes/Utility/Hurtbox.tscn" id="3_gglmj"]
 [ext_resource type="PackedScene" uid="uid://dw7lulq3cp78o" path="res://Scenes/Utility/Hitbox.tscn" id="4_oxq4m"]
 [ext_resource type="AudioStream" uid="uid://30k33mqfg62y" path="res://Assets/Audio/enemy_death.ogg" id="5_51d7v"]
 [ext_resource type="Texture2D" uid="uid://cx2m6wracxwa2" path="res://Assets/Packs/GJL Commission Assets/plastic monster/Crzmont_plasticMonster_walk_Sheet.png" id="5_qf2qe"]
+[ext_resource type="Shader" uid="uid://cab40ddukgqwc" path="res://Scenes/hit_flash.tres" id="6_73gfs"]
 [ext_resource type="Texture2D" uid="uid://c8qwbnqql87v6" path="res://Assets/Packs/GJL Commission Assets/plastic monster/Crzmont_plasticMonster_die_Sheet.png" id="6_ldhnc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_75v8u"]
@@ -16,6 +16,12 @@ radius = 29.4279
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlu4k"]
 radius = 32.0624
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s6qc7"]
+resource_local_to_scene = true
+shader = ExtResource("6_73gfs")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxn2m"]
 atlas = ExtResource("5_qf2qe")
@@ -114,19 +120,48 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_4egmq"]
+resource_name = "hit_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_knfm8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vkbw4"]
+_data = {
+"RESET": SubResource("Animation_knfm8"),
+"hit_flash": SubResource("Animation_4egmq")
+}
+
 [node name="EnemyOne" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_p66wu")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-13, -12)
-scale = Vector2(2, 2)
-texture = ExtResource("2_k65sn")
-hframes = 8
-vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -156,13 +191,16 @@ stream = ExtResource("5_51d7v")
 pitch_scale = 0.64
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_s6qc7")
 position = Vector2(-10, -12)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_o4shs")
-animation = &"die"
 autoplay = "default"
-frame = 5
-frame_progress = 0.321663
+
+[node name="hit_flash_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vkbw4")
+}
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 
