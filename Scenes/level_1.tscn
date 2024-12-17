@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://c05676ncbexxu"]
+[gd_scene load_steps=22 format=3 uid="uid://c05676ncbexxu"]
 
 [ext_resource type="Texture2D" uid="uid://bgg80gtj6id3j" path="res://Assets/Packs/Beach Assets/Beach Tileset.png" id="1_i3man"]
 [ext_resource type="PackedScene" uid="uid://34pt5xoerdqu" path="res://Scenes/player.tscn" id="2_yay02"]
 [ext_resource type="PackedScene" uid="uid://j2pmr1gfkm6i" path="res://Scenes/camera_ui.tscn" id="3_jybkh"]
+[ext_resource type="Script" path="res://Scenes/Utility/spawn_info.gd" id="6_84wkj"]
 [ext_resource type="PackedScene" uid="uid://diixrxiwsbcps" path="res://Scenes/Utility/game_manager.tscn" id="6_hh6eh"]
 [ext_resource type="AudioStream" uid="uid://3uwwi8wgwk0n" path="res://Assets/Audio/sandy-beach-calm-waves-water-nature-sounds-8052.mp3" id="7_mixkh"]
+[ext_resource type="PackedScene" uid="uid://bw4a6mfav1uj2" path="res://Scenes/Enemy/enemy_two.tscn" id="7_sjqmd"]
 [ext_resource type="PackedScene" uid="uid://dajhi3igfxlyu" path="res://Scenes/Enemy/enemy_one.tscn" id="8_5wj7q"]
 [ext_resource type="PackedScene" uid="uid://brfbjiis22qeu" path="res://Scenes/menus/pause_menu.tscn" id="8_nhv4n"]
 [ext_resource type="PackedScene" uid="uid://delall7nnqtfy" path="res://Scenes/Utility/Enemy_Spawner.tscn" id="9_2uli5"]
@@ -169,6 +171,23 @@ size = Vector2(2626, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lu7yk"]
 size = Vector2(2274, 6.29516)
 
+[sub_resource type="Resource" id="Resource_ncm5d"]
+script = ExtResource("6_84wkj")
+time_start = 0
+time_end = 10
+enemy = ExtResource("8_5wj7q")
+enemy_num = 2
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_0bm1p"]
+resource_local_to_scene = true
+script = ExtResource("6_84wkj")
+time_start = 15
+time_end = 35
+enemy = ExtResource("7_sjqmd")
+enemy_num = 1
+enemy_spawn_delay = 1
+
 [node name="level_1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -225,6 +244,7 @@ one_way_collision = true
 position = Vector2(-116, 398)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("9_2uli5")]
+spawns = Array[ExtResource("6_84wkj")]([SubResource("Resource_ncm5d"), SubResource("Resource_0bm1p")])
 
 [node name="loots" type="Node2D" parent="." groups=["loot"]]
 

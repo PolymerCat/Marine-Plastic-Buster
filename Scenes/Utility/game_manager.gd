@@ -10,8 +10,9 @@ extends Node2D
 
 @onready var timer = $Timer
 @onready var audio = $audio
+@onready var audio2 = $audio2
 
-var round_time = 10
+var round_time = 15
 var rounds = 1
 
 func _ready():
@@ -30,7 +31,7 @@ func _process(delta):
 	# Will play clock ticking sound when 10 seconds left
 	if audio.playing:
 		pass
-	elif not audio.playing and timer.time_left <=10:
+	elif not audio.playing and timer.time_left <=5:
 		audio.play(6.0)
 		gui_anim.play("timer_ending")
 	else:
@@ -48,6 +49,8 @@ func _on_timer_timeout():
 	if rounds<=5:
 		rounds+=1
 		round_time+=5
+		audio2.play()
+		await get_tree().create_timer(0.3).timeout
 		round_end.emit(true)
 		#timer.start(round_time)
 		

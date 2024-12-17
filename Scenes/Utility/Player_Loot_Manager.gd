@@ -29,7 +29,7 @@ func _on_collect_area_area_entered(area):
 	if area.is_in_group("loot"):
 		#print("pickup")
 		var exp = area.collect()
-		current_loot+=1
+		current_loot+=10
 		loot_label.text = "x" + str(current_loot)
 		calculate_exp(exp)
 		

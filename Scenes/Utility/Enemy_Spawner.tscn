@@ -7,9 +7,9 @@
 [sub_resource type="Resource" id="Resource_ncm5d"]
 script = ExtResource("3_fpk3l")
 time_start = 0
-time_end = 60
+time_end = 10
 enemy = ExtResource("2_dtg6f")
-enemy_num = 1
+enemy_num = 2
 enemy_spawn_delay = 1
 
 [node name="EnemySpawner" type="Node2D"]
