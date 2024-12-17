@@ -11,7 +11,7 @@ extends Node2D
 @onready var timer = $Timer
 @onready var audio = $audio
 
-var round_time = 40
+var round_time = 10
 var rounds = 1
 
 func _ready():
@@ -41,17 +41,21 @@ func _process(delta):
 
 func time_left():
 	var time = timer.time_left
-	
 	return time
 
 func _on_timer_timeout():
 	# Each new round will increase in time
 	if rounds<=5:
 		rounds+=1
-		round_time+=10
-		timer.start(round_time)
+		round_time+=5
+		round_end.emit(true)
+		#timer.start(round_time)
 		
 	elif rounds>5: # THIS WILL ACTIVATE THE FINAL ROUND
 		get_tree().quit()
 	
-	
+signal round_end(game_state)
+
+
+func _on_buy_menu_done_buy():
+	timer.start(round_time)

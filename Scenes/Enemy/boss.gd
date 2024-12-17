@@ -29,7 +29,7 @@ func _ready():
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(player.global_position)
-	print(direction)
+	#print(direction)
 	velocity = direction * movement_speed
 	if direction.x>0:
 		boss_sprite.flip_h=true

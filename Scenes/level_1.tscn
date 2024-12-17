@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c05676ncbexxu"]
+[gd_scene load_steps=18 format=3 uid="uid://c05676ncbexxu"]
 
 [ext_resource type="Texture2D" uid="uid://bgg80gtj6id3j" path="res://Assets/Packs/Beach Assets/Beach Tileset.png" id="1_i3man"]
 [ext_resource type="PackedScene" uid="uid://34pt5xoerdqu" path="res://Scenes/player.tscn" id="2_yay02"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://brfbjiis22qeu" path="res://Scenes/menus/pause_menu.tscn" id="8_nhv4n"]
 [ext_resource type="PackedScene" uid="uid://delall7nnqtfy" path="res://Scenes/Utility/Enemy_Spawner.tscn" id="9_2uli5"]
 [ext_resource type="PackedScene" uid="uid://c6w4rwhhjjfeb" path="res://Scenes/Enemy/boss.tscn" id="9_dxsgn"]
+[ext_resource type="PackedScene" uid="uid://b7wj2pb4otvpy" path="res://Scenes/menus/buy_menu.tscn" id="9_wwshu"]
 [ext_resource type="AudioStream" uid="uid://51j8dl1sxcld" path="res://Assets/Audio/music/Clement Panchout _ Tiny_Insect_Fight.wav" id="10_ffj78"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pf31"]
@@ -241,6 +242,12 @@ offset_top = 330.0
 offset_right = -580.048
 offset_bottom = -318.0
 
+[node name="BuyMenu" parent="CanvasLayer" instance=ExtResource("9_wwshu")]
+offset_left = -4.0
+offset_top = -4.0
+offset_right = -4.0
+offset_bottom = -4.0
+
 [node name="Boss" parent="." instance=ExtResource("9_dxsgn")]
 position = Vector2(1216, 15)
 scale = Vector2(6.57, 6.57)
@@ -249,3 +256,6 @@ scale = Vector2(6.57, 6.57)
 stream = ExtResource("10_ffj78")
 volume_db = -5.824
 autoplay = true
+
+[connection signal="round_end" from="GameManager" to="CanvasLayer/BuyMenu" method="_on_game_manager_round_end"]
+[connection signal="done_buy" from="CanvasLayer/BuyMenu" to="GameManager" method="_on_buy_menu_done_buy"]
