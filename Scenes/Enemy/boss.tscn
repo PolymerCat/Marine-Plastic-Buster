@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c6w4rwhhjjfeb"]
+[gd_scene load_steps=63 format=3 uid="uid://c6w4rwhhjjfeb"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy/boss.gd" id="1_smw00"]
 [ext_resource type="PackedScene" uid="uid://dw7lulq3cp78o" path="res://Scenes/Utility/Hitbox.tscn" id="2_h2vwm"]
@@ -667,7 +667,13 @@ _data = {
 "hit_flash": SubResource("Animation_vsxqb")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xf45a"]
+radius = 13.0
+height = 48.0
+
 [node name="Boss" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_smw00")
 
 [node name="Hitbox" parent="." groups=["attack"] instance=ExtResource("2_h2vwm")]
@@ -746,6 +752,11 @@ vframes = 4
 libraries = {
 "": SubResource("AnimationLibrary_hsb54")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-2, 9)
+shape = SubResource("CapsuleShape2D_xf45a")
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="area_entered" from="detector" to="." method="_on_detector_area_entered"]

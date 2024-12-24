@@ -15,9 +15,13 @@ var stick_ammo = 0
 var stick_base_ammo = 1
 var stick_attack_speed = 1.5
 var stick_level = 1
+#var attack_speed = stick_attack_timer.wait_time
 
 # An array of enemies that are in close proximity (inside our detection area)
 var enemy_close = []
+
+func upgrade_stick_level():
+	stick_level+=1
 
 func _ready():
 	attack()
@@ -29,6 +33,9 @@ func attack():
 		if stick_timer.is_stopped():
 			stick_timer.start()
 
+func _process(delta):
+	pass
+	#print(enemy_close)
 
 
 func _on_stick_timer_timeout():

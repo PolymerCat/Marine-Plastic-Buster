@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://dajhi3igfxlyu" path="res://Scenes/Enemy/enemy_one.tscn" id="8_5wj7q"]
 [ext_resource type="PackedScene" uid="uid://brfbjiis22qeu" path="res://Scenes/menus/pause_menu.tscn" id="8_nhv4n"]
 [ext_resource type="PackedScene" uid="uid://delall7nnqtfy" path="res://Scenes/Utility/Enemy_Spawner.tscn" id="9_2uli5"]
-[ext_resource type="PackedScene" uid="uid://c6w4rwhhjjfeb" path="res://Scenes/Enemy/boss.tscn" id="9_dxsgn"]
 [ext_resource type="PackedScene" uid="uid://b7wj2pb4otvpy" path="res://Scenes/menus/buy_menu.tscn" id="9_wwshu"]
 [ext_resource type="AudioStream" uid="uid://51j8dl1sxcld" path="res://Assets/Audio/music/Clement Panchout _ Tiny_Insect_Fight.wav" id="10_ffj78"]
+[ext_resource type="PackedScene" uid="uid://bcec5cg0w6sc7" path="res://Scenes/menus/Bestiary/Bestiary.tscn" id="12_vmaa4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pf31"]
 texture = ExtResource("1_i3man")
@@ -176,7 +176,7 @@ script = ExtResource("6_84wkj")
 time_start = 0
 time_end = 10
 enemy = ExtResource("8_5wj7q")
-enemy_num = 2
+enemy_num = 1
 enemy_spawn_delay = 1
 
 [sub_resource type="Resource" id="Resource_0bm1p"]
@@ -185,7 +185,7 @@ script = ExtResource("6_84wkj")
 time_start = 15
 time_end = 35
 enemy = ExtResource("7_sjqmd")
-enemy_num = 1
+enemy_num = 2
 enemy_spawn_delay = 1
 
 [node name="level_1" type="Node2D"]
@@ -268,14 +268,18 @@ offset_top = -4.0
 offset_right = -4.0
 offset_bottom = -4.0
 
-[node name="Boss" parent="." instance=ExtResource("9_dxsgn")]
-position = Vector2(1216, 15)
-scale = Vector2(6.57, 6.57)
+[node name="Bestiary" parent="CanvasLayer" groups=["bestiary"] instance=ExtResource("12_vmaa4")]
+visible = false
 
 [node name="music_bgm" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ffj78")
 volume_db = -5.824
 autoplay = true
 
+[connection signal="open_bestiary" from="Player/CanvasLayer" to="GameManager" method="_on_canvas_layer_open_bestiary"]
 [connection signal="round_end" from="GameManager" to="CanvasLayer/BuyMenu" method="_on_game_manager_round_end"]
 [connection signal="done_buy" from="CanvasLayer/BuyMenu" to="GameManager" method="_on_buy_menu_done_buy"]
+[connection signal="exit_bestiary" from="CanvasLayer/Bestiary" to="GameManager" method="_on_bestiary_exit_bestiary"]
+
+[editable path="Player"]
+[editable path="Player/Hurtbox"]

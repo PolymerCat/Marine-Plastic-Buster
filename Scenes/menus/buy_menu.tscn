@@ -11,8 +11,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="Animation" id="Animation_8n48n"]
-resource_name = "show"
+[sub_resource type="Animation" id="Animation_g0q02"]
+resource_name = "Hide"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -36,7 +36,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [4, 2]
+"values": [2, 4]
 }
 
 [sub_resource type="Animation" id="Animation_tygsi"]
@@ -66,8 +66,8 @@ tracks/1/keys = {
 "values": [2]
 }
 
-[sub_resource type="Animation" id="Animation_g0q02"]
-resource_name = "Hide"
+[sub_resource type="Animation" id="Animation_8n48n"]
+resource_name = "show"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -79,7 +79,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -91,7 +91,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 4]
+"values": [4, 2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7j3df"]

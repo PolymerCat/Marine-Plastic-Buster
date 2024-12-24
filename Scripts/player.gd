@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 var knockback = Vector2.ZERO
 # SOME PLAYER VARIABLES LIKE STATS
-const SPEED = 120.0
+var SPEED = 110.0
 const DASH_SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 var projectile_cooldown = true
@@ -18,6 +18,7 @@ var hp=80
 
 
 var combat_mode = true
+var player_direction
 
 # PRELOAD WEAPONS
 var lighter = preload("res://Custom Resources/Projectiles/Lighter_Projectile.tscn")
@@ -65,6 +66,7 @@ func gameover_condition():
 func movement():
 	knockback =knockback.move_toward(Vector2.UP, knockback_recovery)
 	var direction = Input.get_vector("gameplay_left","gameplay_right","gameplay_up","gameplay_down")
+	player_direction = direction
 	velocity = direction.normalized()*SPEED
 	velocity += knockback
 	move_and_slide()

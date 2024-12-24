@@ -1,0 +1,340 @@
+[gd_scene load_steps=36 format=3 uid="uid://bcec5cg0w6sc7"]
+
+[ext_resource type="Script" path="res://Scenes/menus/Bestiary/Bestiary.gd" id="1_u5bit"]
+[ext_resource type="Texture2D" uid="uid://bnfaarhaqafoo" path="res://Assets/Images/GUI/Paper UI/18.png" id="1_xvwvr"]
+[ext_resource type="Texture2D" uid="uid://dvc13brh6mnjd" path="res://Assets/Images/GUI/Paper UI/frame2/28.png" id="2_v8j3u"]
+[ext_resource type="Texture2D" uid="uid://fmh1sw01f5wd" path="res://Assets/Images/GUI/Paper UI/frame2/30.png" id="3_agqan"]
+[ext_resource type="Texture2D" uid="uid://domggfd5s6bl" path="res://Assets/Images/GUI/Paper UI/frame2/34.png" id="4_fjgc8"]
+[ext_resource type="Texture2D" uid="uid://whs7d7sh3htq" path="res://Assets/Images/GUI/Paper UI/frame2/32.png" id="5_1tkru"]
+[ext_resource type="Texture2D" uid="uid://cx2m6wracxwa2" path="res://Assets/Packs/GJL Commission Assets/plastic monster/Crzmont_plasticMonster_walk_Sheet.png" id="6_cmxk7"]
+[ext_resource type="PackedScene" uid="uid://qjln5baras0v" path="res://Scenes/menus/Bestiary/beast_box.tscn" id="7_8rmtw"]
+[ext_resource type="Texture2D" uid="uid://bv350hici1cnr" path="res://Assets/Images/GUI/Paper UI/frame1/12.png" id="7_frwv4"]
+[ext_resource type="Resource" uid="uid://g5gahdoan8nl" path="res://Scenes/menus/Bestiary/Beast Infos/Net-Monster.tres" id="9_ms0tx"]
+[ext_resource type="Texture2D" uid="uid://c2s2v8i8xido8" path="res://Assets/Packs/GJL Commission Assets/net monster/Crzmont_netMonster_float_Sheet.png" id="10_aeffd"]
+[ext_resource type="FontFile" uid="uid://bi83kxa6ucncm" path="res://Assets/Packs/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="10_i3nku"]
+[ext_resource type="Resource" uid="uid://p4wac2tn2w4x" path="res://Scenes/menus/Bestiary/Beast Infos/boss-monster.tres" id="11_bjbvx"]
+[ext_resource type="Texture2D" uid="uid://c4kv0d0fnnam5" path="res://Assets/Packs/GJL Commission Assets/boss/crezemont_bigMon_walk1_Sheet.png" id="11_feaa2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfy60"]
+atlas = ExtResource("6_cmxk7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81n5f"]
+atlas = ExtResource("6_cmxk7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at1mb"]
+atlas = ExtResource("6_cmxk7")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo6i3"]
+atlas = ExtResource("6_cmxk7")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn3ea"]
+atlas = ExtResource("6_cmxk7")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmp2y"]
+atlas = ExtResource("6_cmxk7")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5tx2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfy60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81n5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at1mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo6i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn3ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmp2y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj7fb"]
+atlas = ExtResource("10_aeffd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jef4p"]
+atlas = ExtResource("10_aeffd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdtgr"]
+atlas = ExtResource("10_aeffd")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8oc5"]
+atlas = ExtResource("10_aeffd")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6087c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj7fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jef4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdtgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8oc5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujpom"]
+atlas = ExtResource("11_feaa2")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mphcf"]
+atlas = ExtResource("11_feaa2")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m8ng"]
+atlas = ExtResource("11_feaa2")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeiih"]
+atlas = ExtResource("11_feaa2")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y6k2"]
+atlas = ExtResource("11_feaa2")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3012"]
+atlas = ExtResource("11_feaa2")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgkx7"]
+atlas = ExtResource("11_feaa2")
+region = Rect2(0, 192, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmoce"]
+atlas = ExtResource("11_feaa2")
+region = Rect2(96, 192, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cm58x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujpom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mphcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m8ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeiih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y6k2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3012")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgkx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmoce")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Bestiary" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u5bit")
+
+[node name="Layout" type="Node2D" parent="."]
+
+[node name="base_layout" type="Node2D" parent="Layout"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layout/base_layout"]
+position = Vector2(537, 323)
+scale = Vector2(38.375, 20.125)
+texture = ExtResource("1_xvwvr")
+
+[node name="up_left_corner" type="Sprite2D" parent="Layout/base_layout"]
+position = Vector2(35, 34)
+scale = Vector2(3, 3)
+texture = ExtResource("2_v8j3u")
+
+[node name="up_right_corner" type="Sprite2D" parent="Layout/base_layout"]
+position = Vector2(1118, 34)
+scale = Vector2(3, 3)
+texture = ExtResource("3_agqan")
+
+[node name="down_left_corner" type="Sprite2D" parent="Layout/base_layout"]
+position = Vector2(35, 611)
+scale = Vector2(3, 3)
+texture = ExtResource("4_fjgc8")
+
+[node name="down_right_corner" type="Sprite2D" parent="Layout/base_layout"]
+position = Vector2(1117, 611)
+scale = Vector2(3, 3)
+texture = ExtResource("5_1tkru")
+
+[node name="Description-Box" type="Node2D" parent="Layout"]
+position = Vector2(878, 315)
+
+[node name="up_left" type="Sprite2D" parent="Layout/Description-Box"]
+position = Vector2(-215, -169)
+scale = Vector2(2, 2)
+texture = ExtResource("2_v8j3u")
+
+[node name="up_right" type="Sprite2D" parent="Layout/Description-Box"]
+position = Vector2(214, -169)
+scale = Vector2(2, 2)
+texture = ExtResource("3_agqan")
+
+[node name="up" type="Sprite2D" parent="Layout/Description-Box"]
+position = Vector2(-1, -169)
+scale = Vector2(11.375, 2)
+texture = ExtResource("7_frwv4")
+
+[node name="down" type="Sprite2D" parent="Layout/Description-Box"]
+position = Vector2(-1, 234)
+scale = Vector2(11.375, 2)
+texture = ExtResource("7_frwv4")
+
+[node name="down_left" type="Sprite2D" parent="Layout/Description-Box"]
+position = Vector2(-213, 196)
+scale = Vector2(2, 2)
+texture = ExtResource("4_fjgc8")
+
+[node name="down_right" type="Sprite2D" parent="Layout/Description-Box"]
+position = Vector2(213, 196)
+scale = Vector2(2, 2)
+texture = ExtResource("5_1tkru")
+
+[node name="beast_desc" type="RichTextLabel" parent="Layout/Description-Box"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -166.0
+offset_right = 205.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("10_i3nku")
+theme_override_font_sizes/normal_font_size = 0
+text = "Thy name is the Plastic Monster. Thou shall not pass this perimeter"
+
+[node name="Bestiary Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 18.0
+offset_right = 860.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_i3nku")
+theme_override_font_sizes/font_size = 36
+text = "Buster's Bestiary"
+
+[node name="Beast Menu" type="Node2D" parent="."]
+position = Vector2(8, 212)
+
+[node name="plastic-monster-button" type="TextureButton" parent="Beast Menu"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(8, 1.68)
+
+[node name="net-monster-button" type="TextureButton" parent="Beast Menu"]
+offset_top = 70.0
+offset_right = 321.0
+offset_bottom = 134.0
+
+[node name="boss-button" type="TextureButton" parent="Beast Menu"]
+offset_top = 137.0
+offset_right = 319.0
+offset_bottom = 203.0
+
+[node name="Plastic Monster" parent="Beast Menu" instance=ExtResource("7_8rmtw")]
+position = Vector2(-1, 16)
+scale = Vector2(0.5, 0.5)
+
+[node name="Net Monster" parent="Beast Menu" instance=ExtResource("7_8rmtw")]
+position = Vector2(-1, 86)
+scale = Vector2(0.5, 0.5)
+beast = ExtResource("9_ms0tx")
+
+[node name="Boss" parent="Beast Menu" instance=ExtResource("7_8rmtw")]
+position = Vector2(-1, 156)
+scale = Vector2(0.5, 0.5)
+beast = ExtResource("11_bjbvx")
+
+[node name="Monster View" type="Node2D" parent="."]
+
+[node name="Plastic-Monster-View" type="AnimatedSprite2D" parent="Monster View"]
+position = Vector2(495, 319)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_5tx2v")
+autoplay = "default"
+frame = 2
+frame_progress = 0.0269007
+
+[node name="Net-Monster-View" type="AnimatedSprite2D" parent="Monster View"]
+visible = false
+position = Vector2(496, 316)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_6087c")
+autoplay = "default"
+frame = 2
+frame_progress = 0.16563
+
+[node name="Boss-View" type="AnimatedSprite2D" parent="Monster View"]
+visible = false
+position = Vector2(498, 267)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_cm58x")
+autoplay = "default"
+frame_progress = 0.564662
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 573.0
+offset_right = 563.0
+offset_bottom = 626.0
+theme_override_fonts/font = ExtResource("10_i3nku")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[connection signal="pressed" from="Beast Menu/plastic-monster-button" to="." method="_on_plasticmonsterbutton_pressed"]
+[connection signal="pressed" from="Beast Menu/net-monster-button" to="." method="_on_netmonsterbutton_pressed"]
+[connection signal="pressed" from="Beast Menu/boss-button" to="." method="_on_bossbutton_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

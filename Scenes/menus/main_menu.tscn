@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bnbmq1s2aaa6q"]
 
-[ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_yghro"]
+[ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_nsvba"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -9,21 +9,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_yghro")
+script = ExtResource("1_nsvba")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 323)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = -284.0
-offset_top = -185.0
-offset_right = 283.0
-offset_bottom = 184.0
+offset_left = 299.0
+offset_top = 140.0
+offset_right = 866.0
+offset_bottom = 509.0
 alignment = 1
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Play"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Play"]
 
 [node name="Control" type="Button" parent="VBoxContainer"]
 layout_mode = 2

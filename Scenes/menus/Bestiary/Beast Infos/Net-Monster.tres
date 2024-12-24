@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Beast" load_steps=3 format=3 uid="uid://g5gahdoan8nl"]
+
+[ext_resource type="Script" path="res://Scenes/menus/Bestiary/Beast Infos/beast_info.gd" id="1_gpbfi"]
+[ext_resource type="Texture2D" uid="uid://c2s2v8i8xido8" path="res://Assets/Packs/GJL Commission Assets/net monster/Crzmont_netMonster_float_Sheet.png" id="1_qhrc8"]
+
+[resource]
+script = ExtResource("1_gpbfi")
+name = "Net Monster"
+id = "002"
+description = "A monster made of fishing nets, drifted across the sea"
+artwork = ExtResource("1_qhrc8")

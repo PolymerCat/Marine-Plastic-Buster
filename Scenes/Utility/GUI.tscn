@@ -1,9 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://bova6oelvim41"]
+[gd_scene load_steps=33 format=3 uid="uid://bova6oelvim41"]
 
 [ext_resource type="Texture2D" uid="uid://c57h5y4k0il7l" path="res://Assets/Images/GUI/exp_background.png" id="1_i8yab"]
 [ext_resource type="Script" path="res://Scenes/Utility/GUI.gd" id="1_njr27"]
 [ext_resource type="Texture2D" uid="uid://g6tuww6k7fif" path="res://Assets/Images/GUI/exp_progress.png" id="2_l4uwh"]
 [ext_resource type="Texture2D" uid="uid://dscc8otquwo33" path="res://Assets/Images/tape.png" id="3_axsg3"]
+[ext_resource type="Texture2D" uid="uid://bnthdut1ed77m" path="res://Assets/Images/GUI/Keyboards/keys/W.png" id="5_cnmgr"]
+[ext_resource type="Texture2D" uid="uid://c2s6bsange3vs" path="res://Assets/Images/GUI/Keyboards/keys/A.png" id="6_r7vh1"]
+[ext_resource type="Texture2D" uid="uid://8lf3n1pwo0ua" path="res://Assets/Images/GUI/Keyboards/keys/S.png" id="7_qvsau"]
+[ext_resource type="Texture2D" uid="uid://bomfscbr6wrg8" path="res://Assets/Images/GUI/Keyboards/keys/D.png" id="8_bp6c3"]
+[ext_resource type="Texture2D" uid="uid://q0u586ndwe1p" path="res://Assets/Images/GUI/Keyboards/pressed/W.png" id="9_52yhp"]
+[ext_resource type="Texture2D" uid="uid://e7gahfuxajd7" path="res://Assets/Images/GUI/Keyboards/pressed/A.png" id="10_o47r8"]
+[ext_resource type="Texture2D" uid="uid://b0tr2rbv6gbb6" path="res://Assets/Images/GUI/Keyboards/pressed/S.png" id="11_1gpwk"]
+[ext_resource type="Texture2D" uid="uid://8bbcickcucko" path="res://Assets/Images/GUI/Keyboards/pressed/D.png" id="12_4eulu"]
+[ext_resource type="Texture2D" uid="uid://dvnn05wyxscqv" path="res://Assets/Images/GUI/Paper UI/24.png" id="13_upeec"]
 
 [sub_resource type="Animation" id="Animation_14sb4"]
 length = 0.001
@@ -41,6 +50,510 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_14sb4"),
 "timer_ending": SubResource("Animation_qobdc")
+}
+
+[sub_resource type="Animation" id="Animation_0x0vx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/W:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_cnmgr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/W:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/W:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25, -25)]
+}
+
+[sub_resource type="Animation" id="Animation_ff457"]
+resource_name = "w_pressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/W:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_cnmgr"), ExtResource("9_52yhp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/W:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.833333)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/W:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(25, -25), Vector2(25, -23.25)]
+}
+
+[sub_resource type="Animation" id="Animation_xauj4"]
+resource_name = "w_unpressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/W:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("9_52yhp"), ExtResource("5_cnmgr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/W:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0.833333), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/W:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(25, -23.25), Vector2(25, -25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3iu6m"]
+_data = {
+"RESET": SubResource("Animation_0x0vx"),
+"w_pressed": SubResource("Animation_ff457"),
+"w_unpressed": SubResource("Animation_xauj4")
+}
+
+[sub_resource type="Animation" id="Animation_temll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/A:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_r7vh1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/A:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/A:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_akilr"]
+resource_name = "a_pressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/A:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_r7vh1"), ExtResource("10_o47r8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/A:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/A:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.833333)]
+}
+
+[sub_resource type="Animation" id="Animation_mkfnm"]
+resource_name = "a_unpressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/A:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("10_o47r8"), ExtResource("6_r7vh1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/A:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1.75), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/A:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0.833333), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6cewe"]
+_data = {
+"RESET": SubResource("Animation_temll"),
+"a_pressed": SubResource("Animation_akilr"),
+"a_unpressed": SubResource("Animation_mkfnm")
+}
+
+[sub_resource type="Animation" id="Animation_vn64w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/S:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_qvsau")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/S:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/S:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_i3pfg"]
+resource_name = "s_pressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/S:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_qvsau"), ExtResource("11_1gpwk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/S:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(25, 0), Vector2(25, 1.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/S:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.833333)]
+}
+
+[sub_resource type="Animation" id="Animation_kisrp"]
+resource_name = "s_unpressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/S:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("11_1gpwk"), ExtResource("7_qvsau")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/S:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(25, 1.75), Vector2(25, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/S:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0.833333), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5252"]
+_data = {
+"RESET": SubResource("Animation_vn64w"),
+"s_pressed": SubResource("Animation_i3pfg"),
+"s_unpressed": SubResource("Animation_kisrp")
+}
+
+[sub_resource type="Animation" id="Animation_jny58"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_bp6c3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_evicc"]
+resource_name = "d_pressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("8_bp6c3"), ExtResource("12_4eulu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, 0), Vector2(50, 1.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.833333)]
+}
+
+[sub_resource type="Animation" id="Animation_wu5ru"]
+resource_name = "d_unpressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Buttons/D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("12_4eulu"), ExtResource("8_bp6c3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(50, 1.75), Vector2(50, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0.833333), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nfsu4"]
+_data = {
+"RESET": SubResource("Animation_jny58"),
+"d_pressed": SubResource("Animation_evicc"),
+"d_unpressed": SubResource("Animation_wu5ru")
 }
 
 [node name="GUI_manager" type="CanvasLayer" groups=["gui"]]
@@ -106,3 +619,72 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_og42d")
 }
+
+[node name="Round" type="Label" parent="GUI" groups=["round_label"]]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 25.0
+offset_right = 615.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Round "
+
+[node name="Buttons" type="Control" parent="GUI"]
+layout_mode = 1
+anchor_top = 14.249
+anchor_bottom = 14.249
+offset_left = 45.0
+offset_top = -83.96
+offset_right = 85.0
+offset_bottom = -43.96
+
+[node name="W" type="Sprite2D" parent="GUI/Buttons"]
+position = Vector2(25, -25)
+texture = ExtResource("5_cnmgr")
+
+[node name="A" type="Sprite2D" parent="GUI/Buttons"]
+texture = ExtResource("6_r7vh1")
+
+[node name="S" type="Sprite2D" parent="GUI/Buttons"]
+position = Vector2(25, 0)
+texture = ExtResource("7_qvsau")
+
+[node name="D" type="Sprite2D" parent="GUI/Buttons"]
+position = Vector2(50, 0)
+texture = ExtResource("8_bp6c3")
+
+[node name="w_animation" type="AnimationPlayer" parent="GUI"]
+libraries = {
+"": SubResource("AnimationLibrary_3iu6m")
+}
+
+[node name="a_animation" type="AnimationPlayer" parent="GUI"]
+libraries = {
+"": SubResource("AnimationLibrary_6cewe")
+}
+
+[node name="s_animation" type="AnimationPlayer" parent="GUI"]
+libraries = {
+"": SubResource("AnimationLibrary_v5252")
+}
+
+[node name="d_animation" type="AnimationPlayer" parent="GUI"]
+libraries = {
+"": SubResource("AnimationLibrary_nfsu4")
+}
+
+[node name="Bestiary Button" type="Node2D" parent="GUI"]
+
+[node name="Sprite2D" type="Sprite2D" parent="GUI/Bestiary Button"]
+position = Vector2(1115, 68)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_upeec")
+
+[node name="TextureButton" type="TextureButton" parent="GUI/Bestiary Button/Sprite2D"]
+offset_left = -32.8572
+offset_top = -40.0
+offset_right = 11.1428
+offset_bottom = 17.0
+
+[connection signal="pressed" from="GUI/Bestiary Button/Sprite2D/TextureButton" to="." method="_on_texture_button_pressed"]

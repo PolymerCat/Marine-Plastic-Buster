@@ -194,7 +194,7 @@ collision_mask = 2
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_whimk")
 
-[node name="Attack" parent="." instance=ExtResource("5_wvhug")]
+[node name="Attack" parent="." groups=["attack_manager"] instance=ExtResource("5_wvhug")]
 position = Vector2(0, 6)
 
 [node name="PlayerLootManager" parent="." instance=ExtResource("6_jefjb")]

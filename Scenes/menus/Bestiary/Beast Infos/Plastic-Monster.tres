@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Beast" load_steps=3 format=3 uid="uid://dqxp1nqhcpb33"]
+
+[ext_resource type="Texture2D" uid="uid://cx2m6wracxwa2" path="res://Assets/Packs/GJL Commission Assets/plastic monster/Crzmont_plasticMonster_walk_Sheet.png" id="1_vk4ro"]
+[ext_resource type="Script" path="res://Scenes/menus/Bestiary/Beast Infos/beast_info.gd" id="2_w0iim"]
+
+[resource]
+script = ExtResource("2_w0iim")
+name = "Plastic Monster"
+id = "001"
+description = "The plastic monsters were first discovered in the northern regions of Cleanville. They emerged from the beachsides and attacked the survivors in broad daylight.These monsters are said to be made of plastic wastes from a decade ago. They were formed by the Wild Scum in the depths of the ocean. This is what happens when the human civillization did not control their plastic wastes "
+artwork = ExtResource("1_vk4ro")
