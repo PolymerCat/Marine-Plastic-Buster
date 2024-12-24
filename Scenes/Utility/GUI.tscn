@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bova6oelvim41"]
+[gd_scene load_steps=34 format=3 uid="uid://bova6oelvim41"]
 
 [ext_resource type="Texture2D" uid="uid://c57h5y4k0il7l" path="res://Assets/Images/GUI/exp_background.png" id="1_i8yab"]
 [ext_resource type="Script" path="res://Scenes/Utility/GUI.gd" id="1_njr27"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b0tr2rbv6gbb6" path="res://Assets/Images/GUI/Keyboards/pressed/S.png" id="11_1gpwk"]
 [ext_resource type="Texture2D" uid="uid://8bbcickcucko" path="res://Assets/Images/GUI/Keyboards/pressed/D.png" id="12_4eulu"]
 [ext_resource type="Texture2D" uid="uid://dvnn05wyxscqv" path="res://Assets/Images/GUI/Paper UI/24.png" id="13_upeec"]
+[ext_resource type="FontFile" uid="uid://bi83kxa6ucncm" path="res://Assets/Packs/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="14_qdalv"]
 
 [sub_resource type="Animation" id="Animation_14sb4"]
 length = 0.001
@@ -677,7 +678,7 @@ libraries = {
 [node name="Bestiary Button" type="Node2D" parent="GUI"]
 
 [node name="Sprite2D" type="Sprite2D" parent="GUI/Bestiary Button"]
-position = Vector2(1115, 68)
+position = Vector2(1111, 68)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("13_upeec")
 
@@ -686,5 +687,15 @@ offset_left = -32.8572
 offset_top = -40.0
 offset_right = 11.1428
 offset_bottom = 17.0
+
+[node name="Label" type="Label" parent="GUI/Bestiary Button"]
+offset_left = 1082.0
+offset_top = 102.0
+offset_right = 1143.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_qdalv")
+theme_override_font_sizes/font_size = 8
+text = "Bestiary"
 
 [connection signal="pressed" from="GUI/Bestiary Button/Sprite2D/TextureButton" to="." method="_on_texture_button_pressed"]
