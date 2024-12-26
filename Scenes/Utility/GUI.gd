@@ -9,11 +9,12 @@ extends CanvasLayer
 @onready var loot_label = $GUI/Sprite2D/Label
 @onready var player = get_tree().get_first_node_in_group("player")
 
-@onready var w_animation = $GUI/w_animation
-@onready var a_animation = $GUI/a_animation
-@onready var s_animation = $GUI/s_animation
-@onready var d_animation = $GUI/d_animation
-
+#@onready var w_animation = $GUI/w_animation
+#@onready var a_animation = $GUI/a_animation
+#@onready var s_animation = $GUI/s_animation
+#@onready var d_animation = $GUI/d_animation
+@onready var bestiary_click_sfx = $bestiary_click_sfx
+@onready var game_over_2 = $game_over2
 
 func get_xp_bar():
 	return xp_bar
@@ -24,5 +25,11 @@ signal open_bestiary()
 
 
 func _on_texture_button_pressed():
+	bestiary_click_sfx.play()
 	print("Open Bestiary")
 	open_bestiary.emit()
+
+
+func _on_game_manager_game_end():
+	game_over_2.play("game_over")
+

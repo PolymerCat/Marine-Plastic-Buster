@@ -24,7 +24,8 @@ scale = Vector2(10, 2)
 texture = SubResource("GradientTexture2D_x027n")
 
 [node name="beast_image" type="Sprite2D" parent="."]
-position = Vector2(46, 33)
+position = Vector2(65, 20)
+scale = Vector2(2, 2)
 
 [node name="beast_name" type="Label" parent="."]
 offset_left = 117.0

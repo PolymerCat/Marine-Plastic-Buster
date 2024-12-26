@@ -1,4 +1,5 @@
 extends Control
+@onready var ui_click_sfx = $ui_click_sfx
 
 func resume():
 	get_tree().paused = false
@@ -20,15 +21,18 @@ func testEsc():
 
 
 func _on_resume_pressed():
+	ui_click_sfx.play(0.2)
 	resume()
 
 
 func _on_restart_pressed():
+	ui_click_sfx.play(0.2)
 	resume()
 	get_tree().reload_current_scene()
 
 
 func _on_quit_pressed():
+	ui_click_sfx.play(0.2)
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/menus/main_menu.tscn")
 

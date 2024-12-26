@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7wj2pb4otvpy"]
+[gd_scene load_steps=15 format=3 uid="uid://b7wj2pb4otvpy"]
 
 [ext_resource type="FontFile" uid="uid://dhgqkm7pe5cg0" path="res://Assets/Fonts/ARCADECLASSIC.TTF" id="1_58bwo"]
 [ext_resource type="Script" path="res://Scenes/menus/buy_menu.gd" id="1_xxylq"]
 [ext_resource type="Texture2D" uid="uid://cc5ljbw2687ht" path="res://icon.svg" id="2_hddle"]
+[ext_resource type="Texture2D" uid="uid://dscc8otquwo33" path="res://Assets/Images/tape.png" id="4_w7d2j"]
+[ext_resource type="AudioStream" uid="uid://db3tje2vetrbx" path="res://Assets/Audio/general/ui/ui-click-43196.mp3" id="5_7bpg5"]
+[ext_resource type="FontFile" uid="uid://bi83kxa6ucncm" path="res://Assets/Packs/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="6_toa35"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yih78"]
 bg_color = Color(0.215686, 0.470588, 0.137255, 1)
@@ -101,6 +104,66 @@ _data = {
 "show": SubResource("Animation_8n48n")
 }
 
+[sub_resource type="Animation" id="Animation_twwcx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2wjm0"]
+resource_name = "not_enuff"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -77)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kf2j7"]
+_data = {
+"RESET": SubResource("Animation_twwcx"),
+"not_enuff": SubResource("Animation_2wjm0")
+}
+
 [node name="BuyMenu" type="Control"]
 process_mode = 2
 visible = false
@@ -177,6 +240,19 @@ theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_yih78")
 text = "Upgrade"
 
+[node name="Sprite2D2" type="Sprite2D" parent="ColorRect/PlayerSpeed"]
+position = Vector2(106.5, 168)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_w7d2j")
+
+[node name="player_speed_price" type="Label" parent="ColorRect/PlayerSpeed"]
+layout_mode = 0
+offset_left = 534.5
+offset_top = 132.0
+offset_right = 600.5
+offset_bottom = 155.0
+text = "Price: 15"
+
 [node name="WeaponSpeed" type="Label" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 5
@@ -197,10 +273,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -101.5
-offset_top = 42.0
-offset_right = 94.5
-offset_bottom = 88.0
+offset_left = -100.5
+offset_top = 33.0
+offset_right = 95.5
+offset_bottom = 68.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_58bwo")
 theme_override_font_sizes/font_size = 34
@@ -217,15 +293,28 @@ theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_yih78")
 text = "Upgrade"
 
+[node name="weapon_speed_price" type="Label" parent="ColorRect/WeaponSpeed"]
+layout_mode = 0
+offset_left = -385.0
+offset_top = 133.0
+offset_right = -319.0
+offset_bottom = 156.0
+text = "Price: 15"
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/WeaponSpeed"]
+position = Vector2(106, 165)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_w7d2j")
+
 [node name="WeaponDamage" type="Label" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -351.5
-offset_top = 320.0
-offset_right = -119.5
-offset_bottom = 381.0
+offset_left = -115.5
+offset_top = 284.0
+offset_right = 116.5
+offset_bottom = 345.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_58bwo")
 theme_override_font_sizes/font_size = 34
@@ -257,45 +346,18 @@ theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxFlat_yih78")
 text = "Upgrade"
 
-[node name="WeaponDamage2" type="Label" parent="ColorRect"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 109.5
-offset_top = 319.0
-offset_right = 341.5
-offset_bottom = 380.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_58bwo")
-theme_override_font_sizes/font_size = 34
-text = "Net Weapon"
-horizontal_alignment = 1
+[node name="Sprite2D3" type="Sprite2D" parent="ColorRect/WeaponDamage"]
+position = Vector2(111, 170)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_w7d2j")
 
-[node name="WDValue" type="Label" parent="ColorRect/WeaponDamage2"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -101.5
-offset_top = 42.0
-offset_right = 94.5
-offset_bottom = 88.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_58bwo")
-theme_override_font_sizes/font_size = 34
-text = "100"
-horizontal_alignment = 1
-
-[node name="buy_net_weapon" type="Button" parent="ColorRect/WeaponDamage2"]
+[node name="weapon_damage_price" type="Label" parent="ColorRect/WeaponDamage"]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 85.0
-offset_right = 170.0
-offset_bottom = 135.0
-theme_override_font_sizes/font_size = 21
-theme_override_styles/normal = SubResource("StyleBoxFlat_yih78")
-text = "Upgrade"
+offset_left = 79.0
+offset_top = 136.0
+offset_right = 145.0
+offset_bottom = 159.0
+text = "Price: 15"
 
 [node name="Done" type="Button" parent="ColorRect"]
 layout_mode = 0
@@ -310,8 +372,27 @@ libraries = {
 "": SubResource("AnimationLibrary_7j3df")
 }
 
+[node name="ui_click_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7bpg5")
+
+[node name="not_enuff" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kf2j7")
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Label2" type="Label" parent="Node2D"]
+offset_left = 743.0
+offset_top = 540.0
+offset_right = 1031.0
+offset_bottom = 563.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("6_toa35")
+text = "Not Enough Plastics!"
+
 [connection signal="pressed" from="ColorRect/PlayerSpeed/buy_player_speed" to="." method="_on_buy_player_speed_pressed"]
 [connection signal="pressed" from="ColorRect/WeaponSpeed/buy_weapon_speed" to="." method="_on_buy_weapon_speed_pressed"]
 [connection signal="pressed" from="ColorRect/WeaponDamage/buy_weapon_damage" to="." method="_on_buy_weapon_damage_pressed"]
-[connection signal="pressed" from="ColorRect/WeaponDamage2/buy_net_weapon" to="." method="_on_buy_net_weapon_pressed"]
 [connection signal="pressed" from="ColorRect/Done" to="." method="_on_done_pressed"]

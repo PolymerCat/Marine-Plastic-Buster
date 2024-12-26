@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Beast" load_steps=3 format=3 uid="uid://dqxp1nqhcpb33"]
 
-[ext_resource type="Texture2D" uid="uid://cx2m6wracxwa2" path="res://Assets/Packs/GJL Commission Assets/plastic monster/Crzmont_plasticMonster_walk_Sheet.png" id="1_vk4ro"]
+[ext_resource type="Texture2D" uid="uid://dxv8hvg8d6sp8" path="res://Assets/Packs/GJL Commission Assets/single spriites/plastic.png" id="1_byisd"]
 [ext_resource type="Script" path="res://Scenes/menus/Bestiary/Beast Infos/beast_info.gd" id="2_w0iim"]
 
 [resource]
 script = ExtResource("2_w0iim")
 name = "Plastic Monster"
 id = "001"
-description = "The plastic monsters were first discovered in the northern regions of Cleanville. They emerged from the beachsides and attacked the survivors in broad daylight.These monsters are said to be made of plastic wastes from a decade ago. They were formed by the Wild Scum in the depths of the ocean. This is what happens when the human civillization did not control their plastic wastes "
-artwork = ExtResource("1_vk4ro")
+description = "Appeared as the top 5 and top 6 among the top 10 monsters being scouted globally in 2023. By suffocating and luring as prey for its predator, this monster kills unsuspecting animals that accidentally eat it. Common victims are seabirds, turtles, whales, dolphins, and others.Plastic bag was once used mostly as single use bag to carry things conveniently and to dispose rubbish, before it is transformed into a monster after abandoned for long."
+artwork = ExtResource("1_byisd")

@@ -1,6 +1,222 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnbmq1s2aaa6q"]
+[gd_scene load_steps=25 format=3 uid="uid://bnbmq1s2aaa6q"]
 
 [ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_nsvba"]
+[ext_resource type="AudioStream" uid="uid://bdlmnewheuaaa" path="res://Assets/Audio/music/Clement Panchout_ Life is full of Joy.wav" id="2_md8ml"]
+[ext_resource type="Texture2D" uid="uid://dggvgkpc0bpuj" path="res://Assets/Packs/GJL Commission Assets/Player/Crzmont_player_run_Sheet.png" id="3_tymwx"]
+[ext_resource type="Texture2D" uid="uid://cx2m6wracxwa2" path="res://Assets/Packs/GJL Commission Assets/plastic monster/Crzmont_plasticMonster_walk_Sheet.png" id="4_rwgkl"]
+[ext_resource type="AudioStream" uid="uid://db3tje2vetrbx" path="res://Assets/Audio/general/ui/ui-click-43196.mp3" id="5_5ecg3"]
+[ext_resource type="Texture2D" uid="uid://ctyqs3slh4fau" path="res://Assets/Images/Marine Plastic (tittle).png" id="6_tup8u"]
+[ext_resource type="Texture2D" uid="uid://di02mbdpmpswj" path="res://Assets/Images/Buster (tittle).png" id="7_6tn1u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1vn5"]
+atlas = ExtResource("3_tymwx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khly7"]
+atlas = ExtResource("3_tymwx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1yix"]
+atlas = ExtResource("3_tymwx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdji0"]
+atlas = ExtResource("3_tymwx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1dbs"]
+atlas = ExtResource("3_tymwx")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txw63"]
+atlas = ExtResource("3_tymwx")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q26us"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1vn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khly7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1yix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdji0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1dbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txw63")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sap5j"]
+atlas = ExtResource("4_rwgkl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mya82"]
+atlas = ExtResource("4_rwgkl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwqtr"]
+atlas = ExtResource("4_rwgkl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e67ni"]
+atlas = ExtResource("4_rwgkl")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c834"]
+atlas = ExtResource("4_rwgkl")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7orp"]
+atlas = ExtResource("4_rwgkl")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gafrv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sap5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mya82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwqtr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e67ni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c834")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7orp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="Animation" id="Animation_ryleg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1214, 479)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("monster 1:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("monster 1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-69, 511)]
+}
+
+[sub_resource type="Animation" id="Animation_0x6jo"]
+resource_name = "play"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 5.1, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 5.1, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1214, 479), Vector2(-336, 479), Vector2(-179, 479), Vector2(1422, 479)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("monster 1:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5, 5.1, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("monster 1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5, 5.1, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1342, 511), Vector2(-156, 511), Vector2(-69, 511), Vector2(1641, 511)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_58ee2"]
+_data = {
+"RESET": SubResource("Animation_ryleg"),
+"play": SubResource("Animation_0x6jo")
+}
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -17,9 +233,9 @@ position = Vector2(578, 323)
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 299.0
-offset_top = 140.0
+offset_top = 180.0
 offset_right = 866.0
-offset_bottom = 509.0
+offset_bottom = 549.0
 alignment = 1
 
 [node name="Play" type="Button" parent="VBoxContainer"]
@@ -35,6 +251,46 @@ text = "Control"
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_md8ml")
+volume_db = -5.824
+autoplay = true
+
+[node name="player" type="AnimatedSprite2D" parent="."]
+position = Vector2(1214, 479)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_q26us")
+autoplay = "default"
+frame = 5
+frame_progress = 0.742968
+
+[node name="monster 1" type="AnimatedSprite2D" parent="."]
+position = Vector2(-69, 511)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_gafrv")
+autoplay = "default"
+frame = 4
+frame_progress = 0.998314
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_58ee2")
+}
+autoplay = "play"
+
+[node name="ui_click_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_5ecg3")
+
+[node name="title_1" type="Sprite2D" parent="."]
+position = Vector2(573, 162)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_tup8u")
+
+[node name="title_2" type="Sprite2D" parent="."]
+position = Vector2(585, 234)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_6tn1u")
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Control" to="." method="_on_control_pressed"]

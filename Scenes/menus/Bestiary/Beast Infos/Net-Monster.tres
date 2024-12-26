@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Beast" load_steps=3 format=3 uid="uid://g5gahdoan8nl"]
 
 [ext_resource type="Script" path="res://Scenes/menus/Bestiary/Beast Infos/beast_info.gd" id="1_gpbfi"]
-[ext_resource type="Texture2D" uid="uid://c2s2v8i8xido8" path="res://Assets/Packs/GJL Commission Assets/net monster/Crzmont_netMonster_float_Sheet.png" id="1_qhrc8"]
+[ext_resource type="Texture2D" uid="uid://brvbi6aq3bjnd" path="res://Assets/Packs/GJL Commission Assets/single spriites/net.png" id="1_tmj2m"]
 
 [resource]
 script = ExtResource("1_gpbfi")
 name = "Net Monster"
 id = "002"
-description = "A monster made of fishing nets, drifted across the sea"
-artwork = ExtResource("1_qhrc8")
+description = "A monster made of fishing nets, drifted across the sea. Usually seen at an area near fishing activity, this monster traps and immobilizes its prey, making them susceptible to other predators and unable to search for food. Stronger underwater, it can transform into ghost net and freely traps any matters that go against its way. Common victims are dolphins, sea turtles, sharks, whales sea lions, and others."
+artwork = ExtResource("1_tmj2m")

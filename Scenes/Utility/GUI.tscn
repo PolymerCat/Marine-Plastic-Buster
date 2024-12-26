@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bova6oelvim41"]
+[gd_scene load_steps=18 format=3 uid="uid://bova6oelvim41"]
 
 [ext_resource type="Texture2D" uid="uid://c57h5y4k0il7l" path="res://Assets/Images/GUI/exp_background.png" id="1_i8yab"]
 [ext_resource type="Script" path="res://Scenes/Utility/GUI.gd" id="1_njr27"]
@@ -8,12 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://c2s6bsange3vs" path="res://Assets/Images/GUI/Keyboards/keys/A.png" id="6_r7vh1"]
 [ext_resource type="Texture2D" uid="uid://8lf3n1pwo0ua" path="res://Assets/Images/GUI/Keyboards/keys/S.png" id="7_qvsau"]
 [ext_resource type="Texture2D" uid="uid://bomfscbr6wrg8" path="res://Assets/Images/GUI/Keyboards/keys/D.png" id="8_bp6c3"]
-[ext_resource type="Texture2D" uid="uid://q0u586ndwe1p" path="res://Assets/Images/GUI/Keyboards/pressed/W.png" id="9_52yhp"]
-[ext_resource type="Texture2D" uid="uid://e7gahfuxajd7" path="res://Assets/Images/GUI/Keyboards/pressed/A.png" id="10_o47r8"]
-[ext_resource type="Texture2D" uid="uid://b0tr2rbv6gbb6" path="res://Assets/Images/GUI/Keyboards/pressed/S.png" id="11_1gpwk"]
-[ext_resource type="Texture2D" uid="uid://8bbcickcucko" path="res://Assets/Images/GUI/Keyboards/pressed/D.png" id="12_4eulu"]
 [ext_resource type="Texture2D" uid="uid://dvnn05wyxscqv" path="res://Assets/Images/GUI/Paper UI/24.png" id="13_upeec"]
 [ext_resource type="FontFile" uid="uid://bi83kxa6ucncm" path="res://Assets/Packs/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="14_qdalv"]
+[ext_resource type="AudioStream" uid="uid://rmx1n4tsk2su" path="res://Assets/Audio/general/ui/page-forward-single-chime.wav" id="15_yqtq2"]
 
 [sub_resource type="Animation" id="Animation_14sb4"]
 length = 0.001
@@ -53,508 +50,40 @@ _data = {
 "timer_ending": SubResource("Animation_qobdc")
 }
 
-[sub_resource type="Animation" id="Animation_0x0vx"]
+[sub_resource type="Animation" id="Animation_0ujcr"]
+resource_name = "game_over"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("game_over:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gr10h"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/W:texture")
+tracks/0/path = NodePath("game_over:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_cnmgr")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/W:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/W:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(25, -25)]
+"values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_ff457"]
-resource_name = "w_pressed"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/W:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("5_cnmgr"), ExtResource("9_52yhp")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/W:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.833333)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/W:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(25, -25), Vector2(25, -23.25)]
-}
-
-[sub_resource type="Animation" id="Animation_xauj4"]
-resource_name = "w_unpressed"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/W:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("9_52yhp"), ExtResource("5_cnmgr")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/W:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 0.833333), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/W:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(25, -23.25), Vector2(25, -25)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3iu6m"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wngth"]
 _data = {
-"RESET": SubResource("Animation_0x0vx"),
-"w_pressed": SubResource("Animation_ff457"),
-"w_unpressed": SubResource("Animation_xauj4")
-}
-
-[sub_resource type="Animation" id="Animation_temll"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/A:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_r7vh1")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/A:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/A:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_akilr"]
-resource_name = "a_pressed"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/A:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("6_r7vh1"), ExtResource("10_o47r8")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/A:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 1.75)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/A:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.833333)]
-}
-
-[sub_resource type="Animation" id="Animation_mkfnm"]
-resource_name = "a_unpressed"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/A:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("10_o47r8"), ExtResource("6_r7vh1")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/A:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 1.75), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/A:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 0.833333), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6cewe"]
-_data = {
-"RESET": SubResource("Animation_temll"),
-"a_pressed": SubResource("Animation_akilr"),
-"a_unpressed": SubResource("Animation_mkfnm")
-}
-
-[sub_resource type="Animation" id="Animation_vn64w"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/S:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_qvsau")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/S:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(25, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/S:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_i3pfg"]
-resource_name = "s_pressed"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/S:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("7_qvsau"), ExtResource("11_1gpwk")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/S:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(25, 0), Vector2(25, 1.75)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/S:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.833333)]
-}
-
-[sub_resource type="Animation" id="Animation_kisrp"]
-resource_name = "s_unpressed"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/S:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("11_1gpwk"), ExtResource("7_qvsau")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/S:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(25, 1.75), Vector2(25, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/S:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 0.833333), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v5252"]
-_data = {
-"RESET": SubResource("Animation_vn64w"),
-"s_pressed": SubResource("Animation_i3pfg"),
-"s_unpressed": SubResource("Animation_kisrp")
-}
-
-[sub_resource type="Animation" id="Animation_jny58"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("8_bp6c3")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(50, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_evicc"]
-resource_name = "d_pressed"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("8_bp6c3"), ExtResource("12_4eulu")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(50, 0), Vector2(50, 1.75)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0.833333)]
-}
-
-[sub_resource type="Animation" id="Animation_wu5ru"]
-resource_name = "d_unpressed"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Buttons/D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("12_4eulu"), ExtResource("8_bp6c3")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Buttons/D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(50, 1.75), Vector2(50, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Buttons/D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 0.833333), Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nfsu4"]
-_data = {
-"RESET": SubResource("Animation_jny58"),
-"d_pressed": SubResource("Animation_evicc"),
-"d_unpressed": SubResource("Animation_wu5ru")
+"RESET": SubResource("Animation_gr10h"),
+"game_over": SubResource("Animation_0ujcr")
 }
 
 [node name="GUI_manager" type="CanvasLayer" groups=["gui"]]
@@ -596,10 +125,12 @@ texture_progress = ExtResource("2_l4uwh")
 
 [node name="time_label" type="Label" parent="GUI/time_bar" groups=["timelabel"]]
 layout_mode = 0
-offset_left = 3.0
-offset_top = -4.0
-offset_right = 43.0
-offset_bottom = 19.0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 64.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("14_qdalv")
+theme_override_font_sizes/font_size = 16
 text = "time"
 
 [node name="Sprite2D" type="Sprite2D" parent="GUI"]
@@ -608,10 +139,11 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_axsg3")
 
 [node name="Label" type="Label" parent="GUI/Sprite2D" groups=["loot_collected"]]
-offset_left = 62.0
-offset_top = -44.0
-offset_right = 134.0
-offset_bottom = 44.0
+offset_left = 60.0
+offset_top = -24.0
+offset_right = 188.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("14_qdalv")
 theme_override_font_sizes/font_size = 64
 text = "x0"
 
@@ -623,11 +155,12 @@ libraries = {
 
 [node name="Round" type="Label" parent="GUI" groups=["round_label"]]
 layout_mode = 0
-offset_left = 534.0
-offset_top = 25.0
-offset_right = 615.0
-offset_bottom = 59.0
+offset_left = 510.0
+offset_top = 33.0
+offset_right = 642.0
+offset_bottom = 67.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_qdalv")
 theme_override_font_sizes/font_size = 24
 text = "Round "
 
@@ -635,67 +168,82 @@ text = "Round "
 layout_mode = 1
 anchor_top = 14.249
 anchor_bottom = 14.249
-offset_left = 45.0
-offset_top = -83.96
-offset_right = 85.0
-offset_bottom = -43.96
+offset_left = 49.0
+offset_top = 9.04004
+offset_right = 89.0
+offset_bottom = 49.04
 
 [node name="W" type="Sprite2D" parent="GUI/Buttons"]
-position = Vector2(25, -25)
+position = Vector2(27, -14)
+scale = Vector2(2, 2)
 texture = ExtResource("5_cnmgr")
 
 [node name="A" type="Sprite2D" parent="GUI/Buttons"]
+position = Vector2(-15, 24)
+scale = Vector2(2, 2)
 texture = ExtResource("6_r7vh1")
 
 [node name="S" type="Sprite2D" parent="GUI/Buttons"]
-position = Vector2(25, 0)
+position = Vector2(26, 24)
+scale = Vector2(2, 2)
 texture = ExtResource("7_qvsau")
 
 [node name="D" type="Sprite2D" parent="GUI/Buttons"]
-position = Vector2(50, 0)
+position = Vector2(67, 24)
+scale = Vector2(2, 2)
 texture = ExtResource("8_bp6c3")
 
-[node name="w_animation" type="AnimationPlayer" parent="GUI"]
-libraries = {
-"": SubResource("AnimationLibrary_3iu6m")
-}
-
-[node name="a_animation" type="AnimationPlayer" parent="GUI"]
-libraries = {
-"": SubResource("AnimationLibrary_6cewe")
-}
-
-[node name="s_animation" type="AnimationPlayer" parent="GUI"]
-libraries = {
-"": SubResource("AnimationLibrary_v5252")
-}
-
-[node name="d_animation" type="AnimationPlayer" parent="GUI"]
-libraries = {
-"": SubResource("AnimationLibrary_nfsu4")
-}
+[node name="Label" type="Label" parent="GUI/Buttons"]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -60.0
+offset_right = 94.0
+offset_bottom = -37.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_qdalv")
+theme_override_font_sizes/font_size = 16
+text = "Controls"
 
 [node name="Bestiary Button" type="Node2D" parent="GUI"]
+position = Vector2(0, 19)
 
 [node name="Sprite2D" type="Sprite2D" parent="GUI/Bestiary Button"]
-position = Vector2(1111, 68)
-scale = Vector2(0.7, 0.7)
+position = Vector2(1083, 58)
 texture = ExtResource("13_upeec")
 
 [node name="TextureButton" type="TextureButton" parent="GUI/Bestiary Button/Sprite2D"]
-offset_left = -32.8572
+offset_left = -33.0
 offset_top = -40.0
-offset_right = 11.1428
-offset_bottom = 17.0
+offset_right = 33.0
+offset_bottom = 44.0
 
 [node name="Label" type="Label" parent="GUI/Bestiary Button"]
-offset_left = 1082.0
-offset_top = 102.0
-offset_right = 1143.0
-offset_bottom = 111.0
+offset_left = 1026.0
+offset_top = 105.0
+offset_right = 1148.0
+offset_bottom = 121.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("14_qdalv")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "Bestiary"
+
+[node name="bestiary_click_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_yqtq2")
+
+[node name="game_over" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 372.0
+offset_top = 303.0
+offset_right = 786.0
+offset_bottom = 351.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_qdalv")
+theme_override_font_sizes/font_size = 48
+text = "Game Over"
+
+[node name="game_over2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wngth")
+}
 
 [connection signal="pressed" from="GUI/Bestiary Button/Sprite2D/TextureButton" to="." method="_on_texture_button_pressed"]

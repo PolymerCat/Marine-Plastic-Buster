@@ -672,6 +672,7 @@ radius = 13.0
 height = 48.0
 
 [node name="Boss" type="CharacterBody2D"]
+scale = Vector2(8, 8)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_smw00")

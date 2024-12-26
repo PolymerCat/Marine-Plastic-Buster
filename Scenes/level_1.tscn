@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c05676ncbexxu"]
+[gd_scene load_steps=30 format=3 uid="uid://c05676ncbexxu"]
 
 [ext_resource type="Texture2D" uid="uid://bgg80gtj6id3j" path="res://Assets/Packs/Beach Assets/Beach Tileset.png" id="1_i3man"]
 [ext_resource type="PackedScene" uid="uid://34pt5xoerdqu" path="res://Scenes/player.tscn" id="2_yay02"]
@@ -9,10 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://bw4a6mfav1uj2" path="res://Scenes/Enemy/enemy_two.tscn" id="7_sjqmd"]
 [ext_resource type="PackedScene" uid="uid://dajhi3igfxlyu" path="res://Scenes/Enemy/enemy_one.tscn" id="8_5wj7q"]
 [ext_resource type="PackedScene" uid="uid://brfbjiis22qeu" path="res://Scenes/menus/pause_menu.tscn" id="8_nhv4n"]
+[ext_resource type="PackedScene" uid="uid://c6w4rwhhjjfeb" path="res://Scenes/Enemy/boss.tscn" id="8_yrka0"]
 [ext_resource type="PackedScene" uid="uid://delall7nnqtfy" path="res://Scenes/Utility/Enemy_Spawner.tscn" id="9_2uli5"]
+[ext_resource type="PackedScene" uid="uid://bj4fs0jjq80ts" path="res://Scenes/Enemy/enemy_three.tscn" id="9_vwnq5"]
 [ext_resource type="PackedScene" uid="uid://b7wj2pb4otvpy" path="res://Scenes/menus/buy_menu.tscn" id="9_wwshu"]
-[ext_resource type="AudioStream" uid="uid://51j8dl1sxcld" path="res://Assets/Audio/music/Clement Panchout _ Tiny_Insect_Fight.wav" id="10_ffj78"]
 [ext_resource type="PackedScene" uid="uid://bcec5cg0w6sc7" path="res://Scenes/menus/Bestiary/Bestiary.tscn" id="12_vmaa4"]
+[ext_resource type="AudioStream" uid="uid://b68kgu5ch0kd2" path="res://Assets/Audio/music/Clement Panchout _ Tiny_Insect_Exploration.wav" id="14_5dycb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pf31"]
 texture = ExtResource("1_i3man")
@@ -174,7 +176,7 @@ size = Vector2(2274, 6.29516)
 [sub_resource type="Resource" id="Resource_ncm5d"]
 script = ExtResource("6_84wkj")
 time_start = 0
-time_end = 10
+time_end = 15
 enemy = ExtResource("8_5wj7q")
 enemy_num = 1
 enemy_spawn_delay = 1
@@ -187,6 +189,56 @@ time_end = 35
 enemy = ExtResource("7_sjqmd")
 enemy_num = 2
 enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_5tkcm"]
+resource_local_to_scene = true
+script = ExtResource("6_84wkj")
+time_start = 35
+time_end = 60
+enemy = ExtResource("8_5wj7q")
+enemy_num = 1
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_hh5fa"]
+resource_local_to_scene = true
+script = ExtResource("6_84wkj")
+time_start = 60
+time_end = 90
+enemy = ExtResource("7_sjqmd")
+enemy_num = 1
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_cdfs0"]
+script = ExtResource("6_84wkj")
+time_start = 90
+time_end = 93
+enemy = ExtResource("8_yrka0")
+enemy_num = 1
+enemy_spawn_delay = 2
+
+[sub_resource type="Resource" id="Resource_mmkbi"]
+script = ExtResource("6_84wkj")
+time_start = 90
+time_end = 125
+enemy = ExtResource("8_5wj7q")
+enemy_num = 1
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_vxu54"]
+script = ExtResource("6_84wkj")
+time_start = 90
+time_end = 125
+enemy = ExtResource("7_sjqmd")
+enemy_num = 1
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_3re4u"]
+script = ExtResource("6_84wkj")
+time_start = 80
+time_end = 125
+enemy = ExtResource("9_vwnq5")
+enemy_num = 1
+enemy_spawn_delay = 6
 
 [node name="level_1" type="Node2D"]
 
@@ -203,6 +255,8 @@ layer_1/tile_data = PackedInt32Array(-327674, 655360, 0, 131080, 655360, 0, 2621
 [node name="Player" parent="." instance=ExtResource("2_yay02")]
 position = Vector2(-58, 28)
 scale = Vector2(5, 5)
+
+[node name="PlayerLootManager" parent="Player" index="7" groups=["loot_manager"]]
 
 [node name="camera_ui" parent="Player" instance=ExtResource("3_jybkh")]
 position = Vector2(0, -0.2)
@@ -244,7 +298,7 @@ one_way_collision = true
 position = Vector2(-116, 398)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("9_2uli5")]
-spawns = Array[ExtResource("6_84wkj")]([SubResource("Resource_ncm5d"), SubResource("Resource_0bm1p")])
+spawns = Array[ExtResource("6_84wkj")]([SubResource("Resource_ncm5d"), SubResource("Resource_0bm1p"), SubResource("Resource_5tkcm"), SubResource("Resource_hh5fa"), SubResource("Resource_cdfs0"), SubResource("Resource_mmkbi"), SubResource("Resource_vxu54"), SubResource("Resource_3re4u")])
 
 [node name="loots" type="Node2D" parent="." groups=["loot"]]
 
@@ -271,12 +325,14 @@ offset_bottom = -4.0
 [node name="Bestiary" parent="CanvasLayer" groups=["bestiary"] instance=ExtResource("12_vmaa4")]
 visible = false
 
-[node name="music_bgm" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_ffj78")
+[node name="music_bgm" type="AudioStreamPlayer2D" parent="." groups=["bgm_player"]]
+stream = ExtResource("14_5dycb")
 volume_db = -5.824
 autoplay = true
 
 [connection signal="open_bestiary" from="Player/CanvasLayer" to="GameManager" method="_on_canvas_layer_open_bestiary"]
+[connection signal="game_end" from="GameManager" to="Player" method="_on_game_manager_game_end"]
+[connection signal="game_end" from="GameManager" to="Player/CanvasLayer" method="_on_game_manager_game_end"]
 [connection signal="round_end" from="GameManager" to="CanvasLayer/BuyMenu" method="_on_game_manager_round_end"]
 [connection signal="done_buy" from="CanvasLayer/BuyMenu" to="GameManager" method="_on_buy_menu_done_buy"]
 [connection signal="exit_bestiary" from="CanvasLayer/Bestiary" to="GameManager" method="_on_bestiary_exit_bestiary"]

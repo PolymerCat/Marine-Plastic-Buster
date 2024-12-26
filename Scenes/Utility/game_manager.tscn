@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://diixrxiwsbcps"]
+[gd_scene load_steps=5 format=3 uid="uid://diixrxiwsbcps"]
 
 [ext_resource type="Script" path="res://Scenes/Utility/game_manager.gd" id="1_jyp13"]
 [ext_resource type="AudioStream" uid="uid://dv4ut1ffrhym6" path="res://Assets/Audio/collectgem.mp3" id="2_o72b1"]
 [ext_resource type="AudioStream" uid="uid://by1dgpvws45pp" path="res://Assets/Audio/general/clock ticking good.wav" id="2_wm33v"]
+[ext_resource type="AudioStream" uid="uid://ghxfgym42qx8" path="res://Assets/Audio/general/end round bad.mp3" id="4_2sxr3"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_jyp13")
@@ -16,5 +17,8 @@ volume_db = 4.992
 
 [node name="audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_wm33v")
+
+[node name="game_over_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2sxr3")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

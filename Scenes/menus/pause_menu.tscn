@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://brfbjiis22qeu"]
+[gd_scene load_steps=13 format=3 uid="uid://brfbjiis22qeu"]
 
 [ext_resource type="Shader" path="res://Scenes/menus/pause_menu.gdshader" id="1_0cuna"]
 [ext_resource type="Script" path="res://Scenes/menus/pause_menu.gd" id="1_miyv3"]
 [ext_resource type="FontFile" uid="uid://dhgqkm7pe5cg0" path="res://Assets/Fonts/ARCADECLASSIC.TTF" id="3_ll1d5"]
+[ext_resource type="AudioStream" uid="uid://db3tje2vetrbx" path="res://Assets/Audio/general/ui/ui-click-43196.mp3" id="4_4nytk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ccjfh"]
 shader = ExtResource("1_0cuna")
@@ -250,6 +251,9 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(5, 12)
+
+[node name="ui_click_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4nytk")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

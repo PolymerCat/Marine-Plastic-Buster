@@ -112,3 +112,7 @@ func _on_hurtbox_hurt(damage, _angle, _knockback):
 	#print(hp)
 
 
+
+
+func _on_game_manager_game_end():
+	animator.play("die")

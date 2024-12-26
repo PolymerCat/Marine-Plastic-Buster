@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://34pt5xoerdqu"]
+[gd_scene load_steps=42 format=3 uid="uid://34pt5xoerdqu"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2ehxd"]
 [ext_resource type="AudioStream" uid="uid://brtik3aekcn68" path="res://Assets/Audio/FootstepsWetGravelStones1.wav" id="3_22omq"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cki2eu8uu4ip4" path="res://Scenes/Utility/Player_Loot_Manager.tscn" id="6_jefjb"]
 [ext_resource type="Texture2D" uid="uid://dggvgkpc0bpuj" path="res://Assets/Packs/GJL Commission Assets/Player/Crzmont_player_run_Sheet.png" id="7_hs7ka"]
 [ext_resource type="PackedScene" uid="uid://bova6oelvim41" path="res://Scenes/Utility/GUI.tscn" id="7_snrmv"]
+[ext_resource type="Texture2D" uid="uid://g5og2nv41sqb" path="res://Assets/Packs/GJL Commission Assets/Player/Crzmont_player_die_Sheet.png" id="7_t34np"]
 [ext_resource type="Texture2D" uid="uid://boucogwqjot3w" path="res://Assets/Images/GUI/healthbar.png" id="9_xl753"]
 [ext_resource type="Texture2D" uid="uid://c3ydnt6un31ja" path="res://Assets/Images/GUI/health.png" id="10_4b5e0"]
 
@@ -24,6 +25,42 @@ height = 16.0
 shader = ExtResource("6_600xy")
 shader_parameter/enabled = false
 shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h7r7"]
+atlas = ExtResource("7_t34np")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3dh6"]
+atlas = ExtResource("7_t34np")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_686nd"]
+atlas = ExtResource("7_t34np")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbwpu"]
+atlas = ExtResource("7_t34np")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mird"]
+atlas = ExtResource("7_t34np")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv4sw"]
+atlas = ExtResource("7_t34np")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h6if"]
+atlas = ExtResource("7_t34np")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wxj6"]
+atlas = ExtResource("7_t34np")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8mwg"]
+atlas = ExtResource("7_t34np")
+region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fxwbh"]
 atlas = ExtResource("6_ev1cr")
@@ -75,6 +112,38 @@ region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fypue"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h7r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3dh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_686nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbwpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mird")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv4sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h6if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wxj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8mwg")
+}],
+"loop": true,
+"name": &"die",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fxwbh")
@@ -204,7 +273,7 @@ position = Vector2(0, 7)
 material = SubResource("ShaderMaterial_cwr8w")
 position = Vector2(3, 4)
 sprite_frames = SubResource("SpriteFrames_fypue")
-animation = &"run"
+animation = &"die"
 autoplay = "run"
 
 [node name="CanvasLayer" parent="." instance=ExtResource("7_snrmv")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bcec5cg0w6sc7"]
+[gd_scene load_steps=38 format=3 uid="uid://bcec5cg0w6sc7"]
 
 [ext_resource type="Script" path="res://Scenes/menus/Bestiary/Bestiary.gd" id="1_u5bit"]
 [ext_resource type="Texture2D" uid="uid://bnfaarhaqafoo" path="res://Assets/Images/GUI/Paper UI/18.png" id="1_xvwvr"]
@@ -14,6 +14,8 @@
 [ext_resource type="FontFile" uid="uid://bi83kxa6ucncm" path="res://Assets/Packs/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="10_i3nku"]
 [ext_resource type="Resource" uid="uid://p4wac2tn2w4x" path="res://Scenes/menus/Bestiary/Beast Infos/boss-monster.tres" id="11_bjbvx"]
 [ext_resource type="Texture2D" uid="uid://c4kv0d0fnnam5" path="res://Assets/Packs/GJL Commission Assets/boss/crezemont_bigMon_walk1_Sheet.png" id="11_feaa2"]
+[ext_resource type="AudioStream" uid="uid://cc8dhe0kd7pb8" path="res://Assets/Audio/general/ui/single-paper-slide.wav" id="15_yiqm0"]
+[ext_resource type="AudioStream" uid="uid://dp87j3nhe7r3h" path="res://Assets/Audio/general/ui/page-back-chime.wav" id="16_3juq0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfy60"]
 atlas = ExtResource("6_cmxk7")
@@ -250,6 +252,7 @@ offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = ExtResource("10_i3nku")
 theme_override_font_sizes/normal_font_size = 0
 text = "Thy name is the Plastic Monster. Thou shall not pass this perimeter"
@@ -333,6 +336,12 @@ offset_bottom = 626.0
 theme_override_fonts/font = ExtResource("10_i3nku")
 theme_override_font_sizes/font_size = 24
 text = "Back"
+
+[node name="ui_click_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_yiqm0")
+
+[node name="ui_back_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_3juq0")
 
 [connection signal="pressed" from="Beast Menu/plastic-monster-button" to="." method="_on_plasticmonsterbutton_pressed"]
 [connection signal="pressed" from="Beast Menu/net-monster-button" to="." method="_on_netmonsterbutton_pressed"]

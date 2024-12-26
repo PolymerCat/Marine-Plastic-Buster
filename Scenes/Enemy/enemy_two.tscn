@@ -159,8 +159,8 @@ _data = {
 
 [node name="EnemyOne" type="CharacterBody2D"]
 scale = Vector2(1.5, 1.5)
-collision_layer = 5
-collision_mask = 5
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_x23bw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

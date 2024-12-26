@@ -39,6 +39,12 @@ func _ready():
 			damage=7
 			knockback_amount=100
 			attack_size=1.5
+		4: 
+			hp=1
+			speed=180
+			damage=9
+			knockback_amount=100
+			attack_size=1.7
 	
 	# Adjusts the size of stick attack according to its attack size when leveled up
 	var tween = create_tween()

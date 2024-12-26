@@ -13,7 +13,7 @@ var stick = preload("res://Scenes/Attack/Stick.tscn")
 # Attack Stats (Stick)
 var stick_ammo = 0
 var stick_base_ammo = 1
-var stick_attack_speed = 1.5
+var stick_attack_speed
 var stick_level = 1
 #var attack_speed = stick_attack_timer.wait_time
 
@@ -24,6 +24,7 @@ func upgrade_stick_level():
 	stick_level+=1
 
 func _ready():
+	stick_attack_speed = 1.5
 	attack()
 
 # start the attack function

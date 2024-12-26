@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Beast" load_steps=3 format=3 uid="uid://p4wac2tn2w4x"]
 
 [ext_resource type="Script" path="res://Scenes/menus/Bestiary/Beast Infos/beast_info.gd" id="1_5i8k1"]
-[ext_resource type="Texture2D" uid="uid://duf5ls72rmwkt" path="res://Assets/Packs/GJL Commission Assets/plastic monster/Crzmont_plasticMonsterAlt_walk_Sheet.png" id="1_vtrve"]
+[ext_resource type="Texture2D" uid="uid://bhmwra105e47c" path="res://Assets/Packs/GJL Commission Assets/single spriites/Boss.png" id="1_jfsq7"]
 
 [resource]
 script = ExtResource("1_5i8k1")
 name = "Boss Monster"
 id = "003"
-description = "It is called \"The Disaster\" by the locals. No one know where it came from. One night, it appears and goes on a rampage through the whole settlement. It then disappears without a trace. People are still confused by the phenomena."
-artwork = ExtResource("1_vtrve")
+description = "It is called \"The Disaster\" by the locals. No one know where it came from. One night, it appears and goes on a rampage through the whole settlement. It then disappears without a trace. People are still confused by the phenomena. people suspect that it could be formed by fire or heat that melt and fuse all the plastic monster together.."
+artwork = ExtResource("1_jfsq7")

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var hp=100
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var loot_base = get_tree().get_first_node_in_group("loot")
+@onready var gui = get_tree().get_first_node_in_group("gui")
 @onready var animator = $animator
 @onready var attack_sfx = $attack_sfx
 @onready var die_sfx = $die_sfx
@@ -75,7 +76,10 @@ func death():
 	new_loot.global_position = global_position
 	new_loot.experience = experience
 	loot_base.call_deferred("add_child",new_loot)
+	gui.game_over_2.play("game_over")
+	await get_tree().create_timer(0.5).timeout
 	queue_free()
+	get_tree().change_scene_to_file("res://Scenes/menus/main_menu.tscn")
 
 func _on_hurtbox_hurt(damage, angle, knockback):
 	hit_flash_player.play("hit_flash")
@@ -84,6 +88,7 @@ func _on_hurtbox_hurt(damage, angle, knockback):
 	if hp<=0:
 		death()
 
+signal boss_die()
 
 func _on_detector_area_entered(area):
 	if area.is_in_group("player"):
